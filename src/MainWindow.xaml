@@ -7,6 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+
+            <Button Content="Home" x:Name="Home" />
+
+            <Button Content="Add" x:Name="Add" />
+
+        </StackPanel>
+
+        <DockPanel Grid.Row="1">
+
+            <TextBlock Background="Gray">Hsdfas</TextBlock>
+            <TextBlock Background="Green">asdfsafsf</TextBlock>
+
+        </DockPanel>
 
     </Grid>
 </Window>
