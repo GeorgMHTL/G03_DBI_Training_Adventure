@@ -2,6 +2,7 @@
 
 ## Datenbank Abfragen
 
+### Tabellen erstellen
 ```sql
 Create Table Trainingstage (ID integer primary key autoincrement, Datum date, Dauer time default 0, Schwierigkei
 t integer default 1);
@@ -14,3 +15,21 @@ Create Table Uebungen (ID integer primary key autoincrement, Name string, Muskel
 ```sql
 Create Table Training (ID integer primary key autoincrement, fkTag int, fkUebung int);
 ```
+
+### View Tabelle die mit 2 Joins alle 3 Tabellen Infos verbindet
+```sql
+Create View TrainingDetails as select Trainingstage.Datum, Trainingstage.Dauer, Trainingstage.Schwierigkeit, Uebungen.Name, Uebungen.Muskelgruppen f
+rom Trainingstage join Training on Training.fkTag = Trainingstage.ID join Uebungen on Training.fkUebung = Uebungen.ID;
+```
+
+## Projekt Tagebuch
+### Joudi
+| Datum      | Was gemacht?                                          |
+| ---------- | ----------------------------------------------------- |
+| 21.05.2024 | Tabelle Trainingstage, Uebungen und Training erstellt |
+| 31.05.2024 | View Tabelle erstellt mit Joins                       |
+
+### Georg
+| Datum | Was gemacht? |
+| ----- | ------------ |
+|       |              |
