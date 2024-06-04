@@ -17,7 +17,7 @@
 
             <Button Content="Home" x:Name="Home" VerticalAlignment="Center"  />
 
-            <Button Content="Add" x:Name="Add" VerticalAlignment="Center" />
+            <Button Content="Add" x:Name="Add" VerticalAlignment="Center" Click="Add_Click" />
 
         </StackPanel>
 

@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
-        Title="AddWindow" Height="450" Width="800">
+        Title="Tag hinzufügen" Height="300" Width="400">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Datum (YYYY-MM-TT)" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Dauer" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Schwierigkeit" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Übung" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="1" FontSize="20" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="20" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" FontSize="20" VerticalAlignment="Center"/>
+        <ComboBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Center"/>
     </Grid>
 </Window>

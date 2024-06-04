@@ -12,4 +12,10 @@
     <Folder Include="components\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="assets\TrainingsDoku.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

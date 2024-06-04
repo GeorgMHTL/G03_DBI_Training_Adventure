@@ -20,5 +20,10 @@ namespace G04_DBI_Trainings_Adventure
         {
             InitializeComponent();
         }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
