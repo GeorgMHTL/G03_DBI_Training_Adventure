@@ -10,21 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace G04_DBI_Trainings_Adventure
+namespace G04_DBI_Trainings_Adventure.components
 {
     /// <summary>
-    /// Interaction logic for AddWindow.xaml
+    /// Interaction logic for Workout.xaml
     /// </summary>
-    public partial class AddWindow : Window
-    { 
-
-        public AddWindow()
+    public partial class Workout : UserControl
+    {
+        public Workout()
         {
             InitializeComponent();
         }
-
-        
     }
 }
