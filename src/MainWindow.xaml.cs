@@ -16,6 +16,7 @@ namespace G04_DBI_Trainings_Adventure
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Home_Page homePage = new Home_Page();
         public MainWindow()
         {
             InitializeComponent();
@@ -27,13 +28,14 @@ namespace G04_DBI_Trainings_Adventure
 
             if (addWindow.ShowDialog() == true)
             {
-
+                homePage.UpdatePage();
             }
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
-
+            ContentFrame.Content = homePage;
+            homePage.UpdatePage();
 
         }
     }

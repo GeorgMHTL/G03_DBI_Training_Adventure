@@ -21,9 +21,9 @@
 
         </StackPanel>
 
-        <WrapPanel x:Name="ContentWrap" Background="Aqua" Grid.Row="1">
+        <Frame x:Name="ContentFrame" Background="Aqua" Grid.Row="1">
             
-        </WrapPanel>
+        </Frame>
 
     </Grid>
 </Window>

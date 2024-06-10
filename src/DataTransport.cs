@@ -21,6 +21,7 @@ namespace G04_DBI_Trainings_Adventure
 
         public void LoadWorkouts(WrapPanel HomeWrap)
         {
+            HomeWrap.Children.Clear();
             using (SqliteConnection connection = new SqliteConnection(srcString))
             {
                 connection.Open();
@@ -37,7 +38,7 @@ namespace G04_DBI_Trainings_Adventure
 
                         LoadExercises(reader.GetString(0), work.Training);
 
-                       
+
 
                         HomeWrap.Children.Add(work);
 
@@ -67,8 +68,8 @@ namespace G04_DBI_Trainings_Adventure
                     while (reader.Read())
                     {
                         Exercise exercise = new Exercise();
-                        exercise.Name = reader.GetString(2);
-                        exercise.Training.Children.Add(new TextBlock() { Text = reader.GetString(1) });
+                        exercise.Name = reader.GetString(3);
+                        exercise.Training.Children.Add(new TextBlock() { Text = reader.GetString(3) });
                         
 
                         ExcersiseStack.Children.Add(exercise);

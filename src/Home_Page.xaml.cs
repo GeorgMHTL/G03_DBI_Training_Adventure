@@ -23,8 +23,14 @@ namespace G04_DBI_Trainings_Adventure
         public Home_Page()
         {
             InitializeComponent();
+            UpdatePage();
+        }
 
-            DataTransport dataTransport = new DataTransport("Data Source=TrainingsDoku.db");
+        public void UpdatePage()
+        {
+
+
+            DataTransport dataTransport = new DataTransport("Data Source=assets/TrainingsDoku.db");
 
             dataTransport.LoadWorkouts(Days);
         }
