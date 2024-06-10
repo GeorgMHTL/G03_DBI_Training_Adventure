@@ -15,7 +15,7 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
 
-            <Button Content="Home" x:Name="Home" VerticalAlignment="Center"  />
+            <Button Content="Home" x:Name="Home" VerticalAlignment="Center" Click="Home_Click"  />
 
             <Button Content="Add" x:Name="Add" VerticalAlignment="Center" Click="Add_Click" />
 
