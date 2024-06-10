@@ -30,5 +30,11 @@ namespace G04_DBI_Trainings_Adventure
 
             }
         }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+
+
+        }
     }
 }

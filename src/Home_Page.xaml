@@ -9,6 +9,8 @@
       Title="Home_Page">
 
     <Grid>
+
+        <WrapPanel x:Name="Days"></WrapPanel>
         
     </Grid>
 </Page>

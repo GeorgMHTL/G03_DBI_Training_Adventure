@@ -37,10 +37,14 @@ namespace G04_DBI_Trainings_Adventure
 
                         LoadExercises(reader.GetString(0), work.Training);
 
+                       
+
                         HomeWrap.Children.Add(work);
 
                     }
                 }
+
+                
 
             }
 
@@ -62,7 +66,10 @@ namespace G04_DBI_Trainings_Adventure
                 {
                     while (reader.Read())
                     {
-                        Exercise exercise = new Exercise(); /// need to add the blaglalal
+                        Exercise exercise = new Exercise();
+                        exercise.Name = reader.GetString(2);
+                        exercise.Training.Children.Add(new TextBlock() { Text = reader.GetString(1) });
+                        
 
                         ExcersiseStack.Children.Add(exercise);
                     }
