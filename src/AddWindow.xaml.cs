@@ -18,13 +18,40 @@ namespace G04_DBI_Trainings_Adventure
     /// Interaction logic for AddWindow.xaml
     /// </summary>
     public partial class AddWindow : Window
-    { 
-
+    {
+        public AddDay newDay = new AddDay();
         public AddWindow()
         {
             InitializeComponent();
+
+            newDay.UpdateComboBox(CBExercise);
         }
 
-        
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if (TBDate.Text != "" && TBDuration.Text != "" && TBDiff.Text != "" && CBExercise.SelectedItem != null)
+            {
+                if (!int.TryParse(TBDuration.Text, out int duration) || !int.TryParse(TBDiff.Text, out int diff))
+                {
+                    MessageBox.Show("Dauer und Schwierigkeit müssen eine Zahl sein.");
+                }
+                else
+                {
+                    newDay.Date = TBDate.Text; newDay.Duration = int.Parse(TBDuration.Text); newDay.Difficulty = int.Parse(TBDiff.Text); newDay.Exercise = CBExercise.SelectedIndex;
+                    newDay.AddDayToTrainingstage();
+                    newDay.AddExerciseToTraining();
+                    DialogResult = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bitte füllen Sie alle Felder aus.");
+            }
+        }
     }
 }
