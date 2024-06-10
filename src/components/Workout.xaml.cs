@@ -20,9 +20,12 @@ namespace G04_DBI_Trainings_Adventure.components
     /// </summary>
     public partial class Workout : UserControl
     {
-        public Workout()
+        private string ContentDate;
+        public Workout(string date)
         {
+            ContentDate = date;
             InitializeComponent();
+            
         }
     }
 }

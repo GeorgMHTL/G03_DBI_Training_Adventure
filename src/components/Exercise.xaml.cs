@@ -20,9 +20,20 @@ namespace G04_DBI_Trainings_Adventure.components
     /// </summary>
     public partial class Exercise : UserControl
     {
+     
+        public int Duration { get; set; }
+        public int SkillLevel { get; set; }
+        public string Name { get; set; }
+        public string TargetMuscles { get; set; }
+
+
+
+
         public Exercise()
         {
             InitializeComponent();
+
+
         }
     }
 }

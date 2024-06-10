@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using G04_DBI_Trainings_Adventure.components;
+using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,17 +27,17 @@ namespace G04_DBI_Trainings_Adventure
                 SqliteCommand command = connection.CreateCommand();
 
 
-                command.CommandText = @"";
+                command.CommandText = @"SELECT Datum FROM TrainingDetails GROUP BY Datum;";
 
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                       
-                      
+                        Workout work = new Workout(reader.GetString(0));
 
+                        LoadExercises(reader.GetString(0), work.Training);
 
-
+                        HomeWrap.Children.Add(work);
 
                     }
                 }
@@ -49,7 +50,26 @@ namespace G04_DBI_Trainings_Adventure
 
         public void LoadExercises(string Datum, StackPanel ExcersiseStack)
         {
-            
+            using (SqliteConnection connection = new SqliteConnection(srcString))
+            {
+                connection.Open();
+                SqliteCommand command = connection.CreateCommand();
+
+
+                command.CommandText = $"SELECT * FROM TrainingDetails WHERE Datum = '{Datum}';";
+
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Exercise exercise = new Exercise(); /// need to add the blaglalal
+
+                        ExcersiseStack.Children.Add(exercise);
+                    }
+                }
+
+            }
+
         }
 
     }
