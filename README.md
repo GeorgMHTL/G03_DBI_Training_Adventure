@@ -28,6 +28,7 @@ rom Trainingstage join Training on Training.fkTag = Trainingstage.ID join Uebung
 | ---------- | ----------------------------------------------------- |
 | 21.05.2024 | Tabelle Trainingstage, Uebungen und Training erstellt |
 | 31.05.2024 | View Tabelle erstellt mit Joins                       |
+| 04.06.2024 | AddDay Klasse und AddWindow hinzugefügt |
 
 ### Georg
 | Datum | Was gemacht? |
