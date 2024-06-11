@@ -20,6 +20,8 @@ namespace G04_DBI_Trainings_Adventure
         public MainWindow()
         {
             InitializeComponent();
+            homePage.UpdatePage();
+            ContentFrame.Content = homePage;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)

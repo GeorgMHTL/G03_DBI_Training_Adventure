@@ -25,6 +25,7 @@ namespace G04_DBI_Trainings_Adventure.components
         {
             ContentDate = date;
             InitializeComponent();
+            Date.Text = ContentDate;
             
         }
     }
