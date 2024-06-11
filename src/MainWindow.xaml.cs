@@ -17,10 +17,12 @@ namespace G04_DBI_Trainings_Adventure
     public partial class MainWindow : Window
     {
         private Home_Page homePage = new Home_Page();
+        
         public MainWindow()
         {
             InitializeComponent();
             homePage.UpdatePage();
+            
             ContentFrame.Content = homePage;
         }
 
