@@ -24,7 +24,8 @@ namespace G04_DBI_Trainings_Adventure
         {
             InitializeComponent();
 
-            newDay.UpdateComboBox(CBExercise);
+            newDay.UpdateCBDate(CBDate);
+            newDay.UpdateCBExercise(CBExercise);
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
@@ -34,15 +35,15 @@ namespace G04_DBI_Trainings_Adventure
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (TBDate.Text != "" && TBDuration.Text != "" && TBDiff.Text != "" && CBExercise.SelectedItem != null)
+            if (CBDate.SelectedItem != null && TBDuration.Text != "" && CBDiff.SelectedItem != null && CBExercise.SelectedItem != null)
             {
-                if (!int.TryParse(TBDuration.Text, out int duration) || !int.TryParse(TBDiff.Text, out int diff))
+                if (!int.TryParse(TBDuration.Text, out int duration))
                 {
-                    MessageBox.Show("Dauer und Schwierigkeit müssen eine Zahl sein.");
+                    MessageBox.Show("Dauer muss eine Zahl sein.");
                 }
                 else
                 {
-                    newDay.Date = TBDate.Text; newDay.Duration = int.Parse(TBDuration.Text); newDay.Difficulty = int.Parse(TBDiff.Text); newDay.Exercise = CBExercise.SelectedIndex;
+                    newDay.Date = CBDate.SelectedItem.ToString(); newDay.Duration = int.Parse(TBDuration.Text); newDay.Difficulty = CBDiff.SelectedIndex+1; newDay.Exercise = CBExercise.SelectedIndex;
                     newDay.AddDayToTrainingstage();
                     newDay.AddExerciseToTraining();
                     DialogResult = true;

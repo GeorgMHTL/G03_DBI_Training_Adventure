@@ -31,7 +31,7 @@ namespace G04_DBI_Trainings_Adventure
             Exercise = exercise;
         }
 
-        public void UpdateComboBox(ComboBox cb)
+        public void UpdateCBExercise(ComboBox cb)
         {
             using (SqliteConnection connection = new SqliteConnection("Data Source=assets/TrainingsDoku.db"))
             {
@@ -47,6 +47,22 @@ namespace G04_DBI_Trainings_Adventure
                     }
                 }
                 command.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateCBDate(ComboBox cb)
+        {
+            DateTime today = DateTime.Today;
+            cb.SelectedItem = today.ToString("yyyy-MM-dd");
+            
+            for (int i = 5; i >= 0; i--)
+            {
+                cb.Items.Add(today.AddDays(-i).ToString("yyyy-MM-dd"));
+            }
+
+            for (int i = 1; i <= 5; i++)
+            {
+                cb.Items.Add(today.AddDays(i).ToString("yyyy-MM-dd"));
             }
         }
 
