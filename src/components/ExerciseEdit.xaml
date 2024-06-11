@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="G04_DBI_Trainings_Adventure.components.ExerciseEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure.components"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="400">
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+
+        <TextBlock Grid.Row="0" >Übungen</TextBlock>
+        <ComboBox x:Name="ExersiceCombo" Grid.Row="1">
+        </ComboBox>
+
+        <TextBlock Grid.Row="2">Schwierigkeitsgrad</TextBlock>
+        <ComboBox x:Name="DifficultyCombo" Grid.Row="3">
+        </ComboBox>
+
+        <TextBlock Grid.Row="4">Dauer</TextBlock>
+        <ComboBox x:Name="DurationCombo" Grid.Row="5">
+        </ComboBox>
+
+    </Grid>
+</UserControl>
