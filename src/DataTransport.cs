@@ -44,13 +44,7 @@ namespace G04_DBI_Trainings_Adventure
 
                     }
                 }
-
-                
-
             }
-
-
-
         }
 
         public void LoadExercises(string Datum, StackPanel ExcersiseStack)
@@ -79,6 +73,35 @@ namespace G04_DBI_Trainings_Adventure
             }
 
         }
+
+
+        public void LoadWorkoutBasedDate(string Datum)
+        {
+       
+            using (SqliteConnection connection = new SqliteConnection(srcString))
+            {
+                connection.Open();
+                SqliteCommand command = connection.CreateCommand();
+
+                command.CommandText = $"SELECT * FROM TrainingDetails WHERE Datum = '{Datum}';";
+
+
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        
+
+
+
+                    }
+                }
+      
+            
+            
+            }
+        }
+
 
     }
 }

@@ -9,7 +9,7 @@
 
     <Grid Background="Beige">
 
-        <StackPanel x:Name="Training" Background="Aqua" Orientation="Horizontal"/>
+        <StackPanel x:Name="Training" Background="Orange" Orientation="Horizontal"/>
 
     </Grid>
 

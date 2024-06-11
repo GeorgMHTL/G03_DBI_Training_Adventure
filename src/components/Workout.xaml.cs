@@ -28,5 +28,22 @@ namespace G04_DBI_Trainings_Adventure.components
             Date.Text = ContentDate;
             
         }
+
+        private void Click_Workout(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Workout clicked");
+
+
+            DataTransport dataTransport = new DataTransport("Data Source=assets/TrainingsDoku.db");
+
+            // load based Date
+
+
+            // Edit windows with DATA
+
+            // Save Back in
+
+
+        }
     }
 }

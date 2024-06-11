@@ -6,10 +6,11 @@
              xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure.components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
-    
-    
-    <Grid Background="Beige" Margin="10">
+
+
+
+    <Grid Background="Red" Margin="10" MouseLeftButtonDown="Click_Workout">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -17,7 +18,7 @@
 
         <TextBlock x:Name="Date" Background="LightCoral" Text="XX:XX:XXXX" Grid.Row="0" />
 
-        <StackPanel x:Name="Training" Background="Aqua" Grid.Row="1"/>
+        <StackPanel x:Name="Training" Background="Green" Grid.Row="1"/>
 
     </Grid>
 </UserControl>
