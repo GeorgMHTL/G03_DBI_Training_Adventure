@@ -36,12 +36,16 @@ namespace G04_DBI_Trainings_Adventure.components
 
             DataTransport dataTransport = new DataTransport("Data Source=assets/TrainingsDoku.db");
 
-            // load based Date
 
+            WorkoutEdit workoutEdit = new WorkoutEdit();
 
-            // Edit windows with DATA
+            if (workoutEdit.ShowDialog() == true)
+            {
 
-            // Save Back in
+            }
+           
+
+ 
 
 
         }
