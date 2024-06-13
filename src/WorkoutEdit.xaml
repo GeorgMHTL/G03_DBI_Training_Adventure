@@ -10,8 +10,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
 
         </Grid.RowDefinitions>
 
@@ -22,6 +22,10 @@
         <StackPanel x:Name="ExerciseStack" Background="AliceBlue" Grid.Row="2">
 
 
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+            <Button>Ok</Button>
         </StackPanel>
 
 

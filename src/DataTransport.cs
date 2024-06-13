@@ -116,5 +116,11 @@ namespace G04_DBI_Trainings_Adventure
         }
 
 
+
+        public void UpdateData() 
+        {
+            // Update Data
+        }
+
     }
 }
