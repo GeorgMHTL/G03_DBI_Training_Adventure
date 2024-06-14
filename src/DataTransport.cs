@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace G04_DBI_Trainings_Adventure
@@ -116,32 +117,53 @@ namespace G04_DBI_Trainings_Adventure
 
         public void UpdateTrainingDay(StackPanel exer, string oldDate, string newDate)
         {
-            /*
+
             using (SqliteConnection connection = new SqliteConnection(srcString))
             {
+
                 connection.Open();
                 SqliteCommand command = connection.CreateCommand();
 
                 command.CommandText = @$"UPDATE Trainingstage
-                                         SET Datum = {newDate}, Dauer = {} WHERE Datum = '{Date}';";
+                                         SET Datum = '{newDate}' WHERE Datum = '{oldDate}';";
 
                 command.ExecuteNonQuery();
 
+                
+                command.CommandText = $"Select ID FROM Trainingstage WHERE Datum = '{newDate}';";
+                int newID = 0;
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        newID = reader.GetInt32(0);
+                    }
+                }
+
+                
                 foreach (ExerciseEdit ex in exer.Children)
                 {
-                    command.CommandText = $"INSERT INTO TrainingDetails (Datum, Training, Uebung) VALUES ('{Date}', '{ex.Training}', '{ex.Uebung}');";
+                    
+                    command.CommandText = @$"UPDATE  Training
+                                            SET
+                                            fkUebung = '{ex.ExersiceCombo.SelectedIndex+1}',
+                                            Dauer = '{int.Parse(ex.TimeSpan.Text)}',
+                                            Schwierigkeit = '{ex.DifficultyCombo.SelectedIndex+1}'
+                                            WHERE  fkTag = '{newID}';";
                     command.ExecuteNonQuery();
+                    
                 }
+
+                
+            
             }
 
-            */
+            
 
         }
 
 
-        // Update TrainingDay
 
-        // Update Training
 
 
 

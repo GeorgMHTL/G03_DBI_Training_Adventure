@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace G04_DBI_Trainings_Adventure
 {
     /// <summary>
@@ -22,20 +23,24 @@ namespace G04_DBI_Trainings_Adventure
     {
         public string OldDate { get; set; }
 
-        public WorkoutEdit()
+
+        public WorkoutEdit(string oldDate)
         {
+            this.OldDate = oldDate;
             InitializeComponent();
-            //OldDate = DateCombo.SelectedItem
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Exercise exer in ExerciseStack.Children)
-            {
-                
-            }
+            DataTransport DB = new DataTransport("Data Source=assets/TrainingsDoku.db");
+            DB.UpdateTrainingDay(ExerciseStack, OldDate, DateCombo.SelectedItem.ToString());
+            
+            
 
-
+            DialogResult = true;
         }
+
+
     }
+
 }
