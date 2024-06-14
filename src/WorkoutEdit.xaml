@@ -10,18 +10,22 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
 
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0">Datum</TextBlock>
-        <ComboBox Grid.Row="1"></ComboBox>
+        <ComboBox Grid.Row="1" x:Name="DateCombo"></ComboBox>
 
 
         <StackPanel x:Name="ExerciseStack" Background="AliceBlue" Grid.Row="2">
 
 
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+            <Button>Ok</Button>
         </StackPanel>
 
 

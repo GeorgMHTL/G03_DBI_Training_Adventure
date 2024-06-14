@@ -23,6 +23,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock x:Name="Date" Background="LightCoral" Text="XX:XX:XXXX" Grid.Row="0" />
+      
 
         <StackPanel x:Name="Training" Background="Green" Grid.Row="1" Grid.ColumnSpan="2"/>
 

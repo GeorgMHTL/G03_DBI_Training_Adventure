@@ -33,32 +33,42 @@ namespace G04_DBI_Trainings_Adventure.components
 
         private void Click_Workout(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Workout clicked");
+      
 
+            WorkoutEdit workoutEdit = new WorkoutEdit();
 
             DataTransport dataTransport = new DataTransport("Data Source=assets/TrainingsDoku.db");
 
 
-            WorkoutEdit workoutEdit = new WorkoutEdit();
+            dataTransport.LoadDataToEdit(ContentDate, workoutEdit);
+            LoadDates(workoutEdit);   
+            
+
 
             if (workoutEdit.ShowDialog() == true)
             {
 
             }
            
-
- 
-
-
         }
 
-        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        public void LoadDates(WorkoutEdit workout)
         {
-            removeDay.Date = ContentDate;
-            removeDay.RemoveDayFromTraining();
-            removeDay.RemoveDayFromTrainingstage();
+            DateTime currentDate = DateTime.Parse(Date.Text);
+            DateTime startDate = currentDate.AddDays(-6);
+            DateTime endDate = currentDate.AddDays(6);
 
-            
+            for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
+            {
+                string formattedDate = date.ToString("yyyy-MM-dd");
+                workout.DateCombo.Items.Add(formattedDate);
+            }
+
+            workout.DateCombo.SelectedIndex = 6; 
         }
+
+
     }
+
+
 }

@@ -75,7 +75,7 @@ namespace G04_DBI_Trainings_Adventure
         }
 
 
-        public void LoadWorkoutBasedDate(string Datum)
+        public void LoadDataToEdit(string Datum, WorkoutEdit workout)
         {
        
             using (SqliteConnection connection = new SqliteConnection(srcString))
@@ -88,13 +88,26 @@ namespace G04_DBI_Trainings_Adventure
 
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
+                    workout.ExerciseStack.Children.Clear();
                     while (reader.Read())
                     {
+                        List<string> Data = new List<string>(); 
+
+                        Data.Add(reader.GetString(0));
+                        Data.Add(reader.GetString(1));
+                        Data.Add(reader.GetString(2));
+                        Data.Add(reader.GetString(3));
+
+
+                        
+                        ExerciseEdit exerciseToEdit = new ExerciseEdit(Data);
+
+                        workout.ExerciseStack.Children.Add(exerciseToEdit);
                         
 
-
-
                     }
+
+                  
                 }
       
             
@@ -102,6 +115,12 @@ namespace G04_DBI_Trainings_Adventure
             }
         }
 
+
+
+        public void UpdateData() 
+        {
+            // Update Data
+        }
 
     }
 }

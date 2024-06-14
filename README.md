@@ -26,7 +26,7 @@ rom Trainingstage join Training on Training.fkTag = Trainingstage.ID join Uebung
 
 ### Joudi
 | Datum      | Was gemacht?                                                               |
-| ---------- | -------------------------------------------------------------------------- |
+|------------|----------------------------------------------------------------------------|
 | 21.05.2024 | Tabelle Trainingstage, Uebungen und Training erstellt                      |
 | 31.05.2024 | View Tabelle erstellt mit Joins                                            |
 | 04.06.2024 | AddDay Klasse und AddWindow hinzugefügt                                    |
@@ -36,7 +36,8 @@ rom Trainingstage join Training on Training.fkTag = Trainingstage.ID join Uebung
 
 ### Georg (in English because Joudi doesnt do it)
 | Datum      | Was gemacht?                |
-| ---------- | --------------------------- |
+|------------|-----------------------------|
 | 04.06.2024 | Crated Repo and Base Layout |
 | 10.06.2024 | Added Loading from DB       |
-| 11.06.2024 | Worked on Edit Windwo       |
+| 11.06.2024 | Worked on Edit Window       |
+| 13.06.2024 | Worked on Edit Window       |
