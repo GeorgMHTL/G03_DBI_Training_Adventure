@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static G04_DBI_Trainings_Adventure.WorkoutEdit;
 
 namespace G04_DBI_Trainings_Adventure
 {
@@ -22,13 +23,19 @@ namespace G04_DBI_Trainings_Adventure
         {
             InitializeComponent();
             homePage.UpdatePage();
-            
+
+
             ContentFrame.Content = homePage;
 
-            
+            EventAggregator.DataUpdated += UpdatePageEvent;
+
+
         }
 
-
+        private void UpdatePageEvent()
+        {
+           homePage.UpdatePage();
+        }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {

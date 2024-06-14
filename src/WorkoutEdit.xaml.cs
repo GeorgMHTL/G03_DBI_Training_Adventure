@@ -23,6 +23,16 @@ namespace G04_DBI_Trainings_Adventure
     {
         public string OldDate { get; set; }
 
+        public static class EventAggregator
+        {
+            public static event Action DataUpdated;
+
+            public static void RaiseDataUpdated()
+            {
+                DataUpdated?.Invoke();
+            }
+        }
+
 
         public WorkoutEdit(string oldDate)
         {
@@ -30,12 +40,17 @@ namespace G04_DBI_Trainings_Adventure
             InitializeComponent();
         }
 
+
+
+
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DataTransport DB = new DataTransport("Data Source=assets/TrainingsDoku.db");
             DB.UpdateTrainingDay(ExerciseStack, OldDate, DateCombo.SelectedItem.ToString());
-            
-            
+
+            EventAggregator.RaiseDataUpdated();
 
             DialogResult = true;
         }
