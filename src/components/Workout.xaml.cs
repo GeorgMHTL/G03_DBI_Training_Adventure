@@ -67,7 +67,12 @@ namespace G04_DBI_Trainings_Adventure.components
             workout.DateCombo.SelectedIndex = 6; 
         }
 
-
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        {
+            removeDay.Date = ContentDate;
+            removeDay.RemoveDayFromTraining();
+            removeDay.RemoveDayFromTrainingstage();
+        }
     }
 
 
