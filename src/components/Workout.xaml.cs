@@ -21,6 +21,8 @@ namespace G04_DBI_Trainings_Adventure.components
     public partial class Workout : UserControl
     {
         private string ContentDate;
+        private RemoveDay removeDay = new RemoveDay();
+
         public Workout(string date)
         {
             ContentDate = date;
@@ -48,6 +50,15 @@ namespace G04_DBI_Trainings_Adventure.components
  
 
 
+        }
+
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        {
+            removeDay.Date = ContentDate;
+            removeDay.RemoveDayFromTraining();
+            removeDay.RemoveDayFromTrainingstage();
+
+            
         }
     }
 }

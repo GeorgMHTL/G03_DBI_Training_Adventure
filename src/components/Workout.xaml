@@ -10,7 +10,13 @@
 
 
     <Grid Background="Red" Margin="10" MouseLeftButtonDown="Click_Workout">
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            
+        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -18,7 +24,10 @@
 
         <TextBlock x:Name="Date" Background="LightCoral" Text="XX:XX:XXXX" Grid.Row="0" />
 
-        <StackPanel x:Name="Training" Background="Green" Grid.Row="1"/>
+        <StackPanel x:Name="Training" Background="Green" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+        <Button x:Name="BtnDel" Content="X" Grid.Row="0" Width="13" Grid.Column="1" Click="BtnDel_Click"/>
+
 
     </Grid>
 </UserControl>
