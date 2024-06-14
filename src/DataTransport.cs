@@ -114,22 +114,35 @@ namespace G04_DBI_Trainings_Adventure
         }
 
 
-
-        public void UpdateData(WorkoutEdit edit) 
+        public void UpdateTrainingDay(StackPanel exer, string oldDate, string newDate)
         {
+            /*
             using (SqliteConnection connection = new SqliteConnection(srcString))
             {
                 connection.Open();
                 SqliteCommand command = connection.CreateCommand();
 
-                command.CommandText = $"";
+                command.CommandText = @$"UPDATE Trainingstage
+                                         SET Datum = {newDate}, Dauer = {} WHERE Datum = '{Date}';";
 
                 command.ExecuteNonQuery();
 
-
+                foreach (ExerciseEdit ex in exer.Children)
+                {
+                    command.CommandText = $"INSERT INTO TrainingDetails (Datum, Training, Uebung) VALUES ('{Date}', '{ex.Training}', '{ex.Uebung}');";
+                    command.ExecuteNonQuery();
+                }
             }
-            
+
+            */
+
         }
+
+
+        // Update TrainingDay
+
+        // Update Training
+
 
 
 

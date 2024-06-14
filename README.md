@@ -4,8 +4,7 @@
 
 ### Tabellen erstellen
 ```sql
-Create Table Trainingstage (ID integer primary key autoincrement, Datum date, Dauer time default 0, Schwierigkei
-t integer default 1);
+CREATE TABLE Trainingstage (ID integer primary key autoincrement, Datum date);
 ```
 
 ```sql
@@ -13,13 +12,25 @@ Create Table Uebungen (ID integer primary key autoincrement, Name string, Muskel
 ```
 
 ```sql
-Create Table Training (ID integer primary key autoincrement, fkTag int, fkUebung int);
+CREATE TABLE Training (ID integer primary key autoincrement, fkTag int, fkUebung int, Dauer integer, Schwierigkeit integer);
 ```
 
 ### View Tabelle die mit 2 Joins alle 3 Tabellen Infos verbindet
 ```sql
-Create View TrainingDetails as select Trainingstage.Datum, Trainingstage.Dauer, Trainingstage.Schwierigkeit, Uebungen.Name, Uebungen.Muskelgruppen f
-rom Trainingstage join Training on Training.fkTag = Trainingstage.ID join Uebungen on Training.fkUebung = Uebungen.ID;
+CREATE VIEW TrainingDetails AS
+SELECT
+    Trainingstage.Datum,
+    Training.Dauer,
+    Training.Schwierigkeit,
+    Uebungen.Name,
+    Uebungen.Muskelgruppen
+FROM
+    Trainingstage
+JOIN
+    Training ON Trainingstage.ID = Training.fkTag
+JOIN
+    Uebungen ON Training.fkUebung = Uebungen.ID
+/* TrainingDetails(Datum,Dauer,Schwierigkeit,Name,Muskelgruppen) */;
 ```
 
 ## Projekt Tagebuch 

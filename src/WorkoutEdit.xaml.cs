@@ -1,4 +1,5 @@
-﻿using System;
+﻿using G04_DBI_Trainings_Adventure.components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,22 @@ namespace G04_DBI_Trainings_Adventure
     /// </summary>
     public partial class WorkoutEdit : Window
     {
+        public string OldDate { get; set; }
+
         public WorkoutEdit()
         {
             InitializeComponent();
+            //OldDate = DateCombo.SelectedItem
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Exercise exer in ExerciseStack.Children)
+            {
+                
+            }
+
+
         }
     }
 }
