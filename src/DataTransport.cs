@@ -110,17 +110,28 @@ namespace G04_DBI_Trainings_Adventure
                   
                 }
       
-            
-            
             }
         }
 
 
 
-        public void UpdateData() 
+        public void UpdateData(WorkoutEdit edit) 
         {
-            // Update Data
+            using (SqliteConnection connection = new SqliteConnection(srcString))
+            {
+                connection.Open();
+                SqliteCommand command = connection.CreateCommand();
+
+                command.CommandText = $"";
+
+                command.ExecuteNonQuery();
+
+
+            }
+            
         }
+
+
 
     }
 }
