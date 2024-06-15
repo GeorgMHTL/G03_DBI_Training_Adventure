@@ -85,7 +85,6 @@ namespace G04_DBI_Trainings_Adventure
                 connection.Open();
                 SqliteCommand command = connection.CreateCommand();
 
-                // Funktion mit last_insert_rowid() um die ID des letzten Eintrags zu bekommen auch möglich, aber immer noch falsch
                 command.CommandText = $"INSERT INTO Training(fkTag, fkUebung, Dauer, Schwierigkeit) VALUES ((SELECT ID From Trainingstage WHERE Datum = '{Date}'), {Exercise+1}, {Duration}, {Difficulty});";
                 command.ExecuteNonQuery();
             }

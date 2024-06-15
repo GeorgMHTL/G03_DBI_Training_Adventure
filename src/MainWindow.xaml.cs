@@ -48,15 +48,14 @@ namespace G04_DBI_Trainings_Adventure
             }
         }
 
-        private void Home_Click(object sender, RoutedEventArgs e)
+        private void BtnStat_Click(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Content = homePage;
-            homePage.UpdatePage();
+            ExerciseStatWindow exerciseStatWindow = new ExerciseStatWindow();
 
+            if (exerciseStatWindow.ShowDialog() == true)
+            {
+
+            }
         }
-
-
-
-
     }
 }

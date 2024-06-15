@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Training Adventure" Height="450" Width="800">
     <Window.Resources>
         <Style TargetType="StackPanel" x:Key="NavStyle">
             <Setter Property="Height" Value="50"/>
@@ -42,7 +42,7 @@
 
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" Style="{StaticResource NavStyle}" HorizontalAlignment="Right">
-            <Button Content="Home(toremove)" x:Name="Home" VerticalAlignment="Center" Style="{StaticResource TextButton}" Click="Home_Click" />
+            <Button Content="Statistik" x:Name="BtnStat" VerticalAlignment="Center" Style="{StaticResource TextButton}" Click="BtnStat_Click" />
             <Button  x:Name="Add" VerticalAlignment="Center" Style="{StaticResource RoundButton}" Click="Add_Click">
 
                 <Viewbox Width="50" Height="50">
