@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using G04_DBI_Trainings_Adventure.components;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -28,7 +29,7 @@ namespace G04_DBI_Trainings_Adventure
             ContentFrame.Content = homePage;
 
             EventAggregator.DataUpdated += UpdatePageEvent;
-
+            Workout.EventAggregator.DataUpdatedDel += UpdatePageEvent;
 
         }
 

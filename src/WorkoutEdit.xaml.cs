@@ -23,6 +23,7 @@ namespace G04_DBI_Trainings_Adventure
     {
         public string OldDate { get; set; }
 
+
         public static class EventAggregator
         {
             public static event Action DataUpdated;
