@@ -27,21 +27,11 @@
 
         <TextBlock Grid.Row="0" >Übungen</TextBlock>
         <ComboBox x:Name="ExersiceCombo" Grid.Row="1">
-            <ComboBoxItem>Kniebeugen</ComboBoxItem>
-            <ComboBoxItem>Bankdrücken</ComboBoxItem>
-            <ComboBoxItem>Klimzüge</ComboBoxItem>
-            <ComboBoxItem>Bizepscurls</ComboBoxItem>
-            <ComboBoxItem>Planken</ComboBoxItem>
         </ComboBox>
 
         
         <TextBlock Grid.Row="2">Schwierigkeitsgrad</TextBlock>
         <ComboBox x:Name="DifficultyCombo" Grid.Row="3">
-            <ComboBoxItem>1</ComboBoxItem>
-            <ComboBoxItem>2</ComboBoxItem>
-            <ComboBoxItem>3</ComboBoxItem>
-            <ComboBoxItem>4</ComboBoxItem>
-            <ComboBoxItem>5</ComboBoxItem>
         </ComboBox>
 
         <TextBlock Grid.Row="4">Dauer</TextBlock>

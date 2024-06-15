@@ -20,6 +20,27 @@ namespace G04_DBI_Trainings_Adventure
             this.srcString = srcString;
         }
 
+        public string[] GetExercises()
+        {
+            List<string> exercises = new List<string>();
+            using (SqliteConnection connection = new SqliteConnection(srcString))
+            {
+                connection.Open();
+                SqliteCommand command = connection.CreateCommand();
+
+                command.CommandText = "SELECT Name FROM Uebungen;";
+
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        exercises.Add(reader.GetString(0));
+                    }
+                }
+            }
+            return exercises.ToArray();
+        }
+
         public void LoadWorkouts(WrapPanel HomeWrap)
         {
             HomeWrap.Children.Clear();

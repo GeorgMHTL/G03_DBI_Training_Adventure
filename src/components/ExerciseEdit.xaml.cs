@@ -20,7 +20,7 @@ namespace G04_DBI_Trainings_Adventure.components
     /// </summary>
     public partial class ExerciseEdit : UserControl
     {
-        private string[] exercise = { "Kniebeugen", "Bankdrücken", "Klimmzüge", "Bizepscurls", "Planken" };
+        private DataTransport dataTransport = new DataTransport("Data Source=assets/TrainingsDoku.db");
         private string[] difficulty = { "1", "2", "3", "4", "5" };
         public ExerciseEdit(List<string> Data)
         {
@@ -28,13 +28,12 @@ namespace G04_DBI_Trainings_Adventure.components
             InitializeComponent();
             LoadDefaultData(Data);
 
-
-
         }
 
         private void LoadDefaultData(List<string> Data)
-        { 
-            
+        {
+            string[] exercise = dataTransport.GetExercises();
+            ExersiceCombo.ItemsSource = exercise;
             ExersiceCombo.SelectedIndex = Array.IndexOf(exercise, Data[3]);
             DifficultyCombo.SelectedIndex = Array.IndexOf(difficulty, Data[2]);
             TimeSpan.Text = Data[1];
