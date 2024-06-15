@@ -6,22 +6,56 @@
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.Resources>
+        <Style TargetType="StackPanel" x:Key="NavStyle">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="TextButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+
+    </Window.Resources>
+
+
+    <Grid Background="#5D5D5D">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+       
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
 
-            <Button Content="Home" x:Name="Home" VerticalAlignment="Center" Click="Home_Click"  />
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Style="{StaticResource NavStyle}" HorizontalAlignment="Right">
+            <Button Content="Home(toremove)" x:Name="Home" VerticalAlignment="Center" Style="{StaticResource TextButton}" Click="Home_Click" />
+            <Button  x:Name="Add" VerticalAlignment="Center" Style="{StaticResource RoundButton}" Click="Add_Click">
 
-            <Button Content="Add" x:Name="Add" VerticalAlignment="Center" Click="Add_Click" />
+                <Viewbox Width="50" Height="50">
+                    <Canvas Width="16" Height="16">
+                        <Path Fill="White" Data="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z"/>
+                        <Path Fill="Black" StrokeThickness="2" Data="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                    </Canvas>
+                </Viewbox>
 
+            </Button>
         </StackPanel>
 
-        <Frame x:Name="ContentFrame" Background="Aqua" Grid.Row="1">
+        <Frame x:Name="ContentFrame" Background="White" Grid.Row="1">
             
         </Frame>
 

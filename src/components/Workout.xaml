@@ -8,8 +8,27 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
 
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="DateText">
+            <Setter Property="Background" Value="#5D5D5D"/>
+       
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
 
-    <Grid Background="Red" Margin="10" MouseLeftButtonDown="Click_Workout">
+
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+    </UserControl.Resources>
+
+
+    <Grid Background="#5D5D5D" Margin="10" MouseLeftButtonDown="Click_Workout">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -22,12 +41,21 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="Date" Background="LightCoral" Text="XX:XX:XXXX" Grid.Row="0" />
+        <TextBlock x:Name="Date" Style="{StaticResource DateText}"  Grid.Row="0" Text="asdfsdf" />
       
 
-        <StackPanel x:Name="Training" Background="Green" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <StackPanel x:Name="Training" Background="Gray" Grid.Row="1" Grid.ColumnSpan="2">
 
-        <Button x:Name="BtnDel" Content="X" Grid.Row="0" Width="13" Grid.Column="1" Click="BtnDel_Click"/>
+        </StackPanel>
+
+        <Button x:Name="BtnDel"  Grid.Row="0"  Grid.Column="1" Click="BtnDel_Click" Style="{StaticResource RoundButton}">
+            <Viewbox Width="25" Height="25">
+                <Canvas Width="16" Height="16">
+                    <Path Fill="White" Data="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z"/>
+                    <Path Stroke="Black" StrokeThickness="2" Data="M5,5 L11,11 M5,11 L11,5" />
+                </Canvas>
+            </Viewbox>
+        </Button>
 
 
     </Grid>

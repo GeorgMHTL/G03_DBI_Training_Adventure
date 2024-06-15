@@ -65,9 +65,12 @@ namespace G04_DBI_Trainings_Adventure
                         Exercise exercise = new Exercise();
                         exercise.Name = reader.GetString(3);
                         exercise.Training.Children.Add(new TextBlock() { Text = reader.GetString(3) });
-                        
 
-                        ExcersiseStack.Children.Add(exercise);
+                        if (ExcersiseStack.Children.Count < 4)
+                        {
+                            ExcersiseStack.Children.Add(exercise);
+                        }
+                    
                     }
                 }
 
@@ -89,9 +92,11 @@ namespace G04_DBI_Trainings_Adventure
 
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
+                
                     workout.ExerciseStack.Children.Clear();
                     while (reader.Read())
                     {
+                        
                         List<string> Data = new List<string>(); 
 
                         Data.Add(reader.GetString(0));
@@ -103,7 +108,12 @@ namespace G04_DBI_Trainings_Adventure
                         
                         ExerciseEdit exerciseToEdit = new ExerciseEdit(Data);
 
+                    
                         workout.ExerciseStack.Children.Add(exerciseToEdit);
+                     
+                      
+
+                   
                         
 
                     }

@@ -7,9 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="800">
 
-    <Grid Background="Beige">
 
-        <StackPanel x:Name="Training" Background="Orange" Orientation="Horizontal"/>
+    
+
+    <Grid Background="Transparent">
+
+        <StackPanel x:Name="Training" Background="Transparent" Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Background" Value="Transparent"/>
+
+                </Style>
+            </StackPanel.Resources>
+        </StackPanel>
 
     </Grid>
 
