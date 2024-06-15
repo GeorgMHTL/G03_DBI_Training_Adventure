@@ -28,17 +28,19 @@
     </UserControl.Resources>
 
 
-    <Grid Background="#5D5D5D" Margin="10" MouseLeftButtonDown="Click_Workout">
+    <Grid Background="#5D5D5D" Margin="10" >
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
             
+
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <TextBlock x:Name="Date" Style="{StaticResource DateText}"  Grid.Row="0" Text="asdfsdf" />
@@ -57,6 +59,9 @@
             </Viewbox>
         </Button>
 
+
+        <Button Grid.Row="2" Grid.Column="0">...</Button>
+        <Button Grid.Row="2" Grid.Column="1" Click="Button_Click" >EDIT</Button>
 
     </Grid>
 </UserControl>

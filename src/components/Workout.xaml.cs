@@ -40,20 +40,7 @@ namespace G04_DBI_Trainings_Adventure.components
             Date.Text = ContentDate;
         }
 
-        private void Click_Workout(object sender, MouseButtonEventArgs e)
-        {
-            WorkoutEdit workoutEdit = new WorkoutEdit(ContentDate);
 
-            DataTransport dataTransport = new DataTransport("Data Source=assets/TrainingsDoku.db");
-
-            dataTransport.LoadDataToEdit(ContentDate, workoutEdit);
-            LoadDates(workoutEdit);
-
-            if (workoutEdit.ShowDialog() == true)
-            {
-
-            }
-        }
 
         public void LoadDates(WorkoutEdit workout)
         {
@@ -77,6 +64,22 @@ namespace G04_DBI_Trainings_Adventure.components
             removeDay.RemoveDayFromTrainingstage();
 
             EventAggregator.RaiseDataUpdated();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WorkoutEdit workoutEdit = new WorkoutEdit(ContentDate);
+
+            DataTransport dataTransport = new DataTransport("Data Source=assets/TrainingsDoku.db");
+
+            dataTransport.LoadDataToEdit(ContentDate, workoutEdit);
+            LoadDates(workoutEdit);
+
+            if (workoutEdit.ShowDialog() == true)
+            {
+
+            }
+
         }
     }
 
