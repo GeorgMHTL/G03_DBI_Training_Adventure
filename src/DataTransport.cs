@@ -63,8 +63,31 @@ namespace G04_DBI_Trainings_Adventure
                     while (reader.Read())
                     {
                         Exercise exercise = new Exercise();
-                        exercise.Name = reader.GetString(3);
-                        exercise.Training.Children.Add(new TextBlock() { Text = reader.GetString(3) });
+                 
+                  
+                        var Name = new TextBlock();
+                        var Skill = new TextBlock();
+                        var Duration = new TextBlock();
+
+                        Skill.Text = "";
+                        for (int i = 0; i < reader.GetInt32(2); i++)
+                        {
+                            Skill.Text += "*";
+                        }
+
+                        Name.Text = reader.GetString(3);
+                        Duration.Text = reader.GetString(1);
+
+                       exercise.ExerciseGrid.Children.Add(Name);
+                       exercise.ExerciseGrid.Children.Add(Skill);
+                       exercise.ExerciseGrid.Children.Add(Duration );
+
+
+                        Grid.SetRow(Skill, 0);
+                        Grid.SetRow(Duration, 1);
+                        Grid.SetColumn(Duration, 1);
+                        Grid.SetRow(Name, 1);
+                        Grid.SetColumn(Name, 0);
 
                         if (ExcersiseStack.Children.Count < 4)
                         {
