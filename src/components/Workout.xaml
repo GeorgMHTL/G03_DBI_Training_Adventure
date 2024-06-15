@@ -60,7 +60,7 @@
         </Button>
 
 
-        <Button Grid.Row="2" Grid.Column="0">...</Button>
+        <Button Grid.Row="2" Grid.Column="0" Click="Button_Click_1">...</Button>
         <Button Grid.Row="2" Grid.Column="1" Click="Button_Click" >EDIT</Button>
 
     </Grid>

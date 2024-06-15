@@ -55,7 +55,7 @@
             </Button>
         </StackPanel>
 
-        <Frame x:Name="ContentFrame" Background="White" Grid.Row="1">
+        <Frame x:Name="ContentFrame" Background="White" NavigationUIVisibility="Hidden"  Grid.Row="1">
             
         </Frame>
 

@@ -31,6 +31,14 @@ namespace G04_DBI_Trainings_Adventure.components
             {
                 DataUpdatedDel?.Invoke();
             }
+
+            public static event Action<FullWorkoutPage> WorkutFullView;
+
+            public static void WorkutViewEvent(FullWorkoutPage ClassInstance)
+            {
+                WorkutFullView?.Invoke(ClassInstance);
+            }
+
         }
 
         public Workout(string date)
@@ -79,6 +87,16 @@ namespace G04_DBI_Trainings_Adventure.components
             {
 
             }
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            FullWorkoutPage fullWorkoutPage = new FullWorkoutPage();
+            fullWorkoutPage.Grid.Background = new SolidColorBrush(Colors.Green);
+            EventAggregator.WorkutViewEvent(fullWorkoutPage);
+
+
 
         }
     }

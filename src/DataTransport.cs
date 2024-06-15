@@ -133,11 +133,6 @@ namespace G04_DBI_Trainings_Adventure
 
                     
                         workout.ExerciseStack.Children.Add(exerciseToEdit);
-                     
-                      
-
-                   
-                        
 
                     }
 
