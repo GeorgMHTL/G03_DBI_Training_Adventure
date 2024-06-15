@@ -41,12 +41,13 @@ namespace G04_DBI_Trainings_Adventure
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            AddWindow addWindow = new AddWindow();
+            ConnectWindow connect = new ConnectWindow();
 
-            if (addWindow.ShowDialog() == true)
+            if (connect.ShowDialog() == true)
             {
-                homePage.UpdatePage();
+
             }
+            homePage.UpdatePage();
         }
 
         private void BtnStat_Click(object sender, RoutedEventArgs e)

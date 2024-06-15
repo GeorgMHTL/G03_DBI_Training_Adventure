@@ -19,7 +19,7 @@ namespace G04_DBI_Trainings_Adventure
     /// </summary>
     public partial class AddWindow : Window
     {
-        public AddDay newDay = new AddDay();
+        public AddData newDay = new AddData();
         public AddWindow()
         {
             InitializeComponent();

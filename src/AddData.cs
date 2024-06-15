@@ -8,14 +8,14 @@ using System.Windows.Controls;
 
 namespace G04_DBI_Trainings_Adventure
 {
-    public class AddDay
+    public class AddData
     {
         public string Date { get; set; }
         public int Duration { get; set; }
         public int Difficulty { get; set; }
         public int Exercise { get; set; }
 
-        public AddDay()
+        public AddData()
         {
             Date = "";
             Duration = 0;
@@ -23,13 +23,25 @@ namespace G04_DBI_Trainings_Adventure
             Exercise = 0;
         }
 
-        public AddDay(string date, int duration, int diff, int exercise)
+        public AddData(string date, int duration, int diff, int exercise)
         {
             Date = date;
             Duration = duration;
             Difficulty = diff;
             Exercise = exercise;
         }
+
+        public void AddExercise(string name, string description)
+        {
+            using (SqliteConnection connection = new SqliteConnection("Data Source=assets/TrainingsDoku.db"))
+            {
+                connection.Open();
+                SqliteCommand command = connection.CreateCommand();
+
+                command.CommandText = $"INSERT INTO Uebungen (Name, Muskelgruppen) VALUES ('{name}', '{description}');";
+                command.ExecuteNonQuery();
+            }
+        }   
 
         public void UpdateCBExercise(ComboBox cb)
         {

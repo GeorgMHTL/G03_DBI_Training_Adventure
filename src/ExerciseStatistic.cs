@@ -62,7 +62,11 @@ namespace G04_DBI_Trainings_Adventure
                 {
                     new Axis
                     {
-                        Title = "Anzahl"
+                        Title = "Anzahl",
+                        Separator = new LiveCharts.Wpf.Separator
+                        {
+                            Step = 1
+                        }
                     }
                 },
                 Width = canvas.ActualWidth,
