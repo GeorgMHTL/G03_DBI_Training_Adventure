@@ -36,16 +36,16 @@ JOIN
 ## Projekt Tagebuch 
 
 ### Joudi
-| Datum      | Was gemacht?                                                               |
-| ---------- | -------------------------------------------------------------------------- |
-| 21.05.2024 | Tabelle Trainingstage, Uebungen und Training erstellt                      |
-| 31.05.2024 | View Tabelle erstellt mit Joins                                            |
-| 04.06.2024 | AddDay Klasse und AddWindow hinzugefügt                                    |
-| 10.06.2024 | Hinzufügen von Daten fertig                                                |
-| 11.06.2024 | Eingaben Format geändert                                                   |
-| 13.06.2024 | Löschen von einem Tag Basis fertig fehlt wie man datum bekommt zum löschen |
-| 14.06.2024 | Löschen fertig fehlt das Aktualisieren von der Home page nach dem löschen  |
-| 15.06.2024 | Statistik fertig                                                           |
+| Datum      | Was gemacht?                                                                     |
+| ---------- | -------------------------------------------------------------------------------- |
+| 21.05.2024 | Tabelle Trainingstage, Uebungen und Training erstellt                            |
+| 31.05.2024 | View Tabelle erstellt mit Joins                                                  |
+| 04.06.2024 | AddDay Klasse und AddWindow hinzugefügt                                          |
+| 10.06.2024 | Hinzufügen von Daten fertig                                                      |
+| 11.06.2024 | Eingaben Format geändert                                                         |
+| 13.06.2024 | Löschen von einem Tag Basis fertig fehlt wie man datum bekommt zum löschen       |
+| 14.06.2024 | Löschen fertig fehlt das Aktualisieren von der Home page nach dem löschen        |
+| 15.06.2024 | Statistik fertig; Übungen variabel gemacht und man kann jetzt übungen hinzufügen |
 
 ### Georg (in English because Joudi doesnt do it)
 | Datum      | Was gemacht?                |
