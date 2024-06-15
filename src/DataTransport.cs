@@ -3,6 +3,7 @@ using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -145,10 +146,10 @@ namespace G04_DBI_Trainings_Adventure
 
         public void UpdateTrainingDay(StackPanel exer, string oldDate, string newDate)
         {
+            // Error of Loading here
 
             using (SqliteConnection connection = new SqliteConnection(srcString))
             {
-
                 connection.Open();
                 SqliteCommand command = connection.CreateCommand();
 
@@ -157,8 +158,7 @@ namespace G04_DBI_Trainings_Adventure
 
                 command.ExecuteNonQuery();
 
-                
-                command.CommandText = $"Select ID FROM Trainingstage WHERE Datum = '{newDate}';";
+                command.CommandText = $"SELECT ID FROM Trainingstage WHERE Datum = '{newDate}';";
                 int newID = 0;
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
@@ -168,26 +168,42 @@ namespace G04_DBI_Trainings_Adventure
                     }
                 }
 
-                
-                foreach (ExerciseEdit ex in exer.Children)
+                command.CommandText = $@"SELECT ID from Training WHERE fkTag= {newID}";
+
+                List<int> TrainingIDs = new List<int>();
+                using (SqliteDataReader reader = command.ExecuteReader())
                 {
-                    
-                    command.CommandText = @$"UPDATE  Training
+                    while (reader.Read())
+                    {
+                        TrainingIDs.Add(reader.GetInt32(0));
+
+                    }
+                }
+                foreach (int id in TrainingIDs)
+                {
+                    foreach (ExerciseEdit ex in exer.Children)
+                    {
+                        command.CommandText = @$"UPDATE Training
                                             SET
-                                            fkUebung = '{ex.ExersiceCombo.SelectedIndex+1}',
+                                            fkUebung = '{ex.ExersiceCombo.SelectedIndex + 1}',
                                             Dauer = '{int.Parse(ex.TimeSpan.Text)}',
-                                            Schwierigkeit = '{ex.DifficultyCombo.SelectedIndex+1}'
-                                            WHERE  fkTag = '{newID}';";
-                    command.ExecuteNonQuery();
-                    
+                                            Schwierigkeit = '{ex.DifficultyCombo.SelectedIndex + 1}'
+                                            WHERE  ID = {id} AND fkTag = {newID};";
+
+                        command.ExecuteNonQuery();
+                    }
+
                 }
 
-                
-            
+
+
+
+
+
+
+
+
             }
-
-            
-
         }
 
 

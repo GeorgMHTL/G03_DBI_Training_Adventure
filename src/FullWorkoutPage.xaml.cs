@@ -27,7 +27,7 @@ namespace G04_DBI_Trainings_Adventure
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            // Navigate to the last used page
+
             NavigationService?.GoBack();
         }
     }

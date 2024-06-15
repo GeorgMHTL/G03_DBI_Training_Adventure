@@ -26,6 +26,8 @@ namespace G04_DBI_Trainings_Adventure.components
         public string Name { get; set; }
         public string TargetMuscles { get; set; }
 
+  
+
 
 
 
