@@ -12,10 +12,10 @@ using System.Windows.Controls;
 namespace G04_DBI_Trainings_Adventure
 {
    
-    public class DataTransport
+public class DataTransport
     {
         private string srcString;
-        
+
         public DataTransport(string srcString)
         {
             this.srcString = srcString;
@@ -50,7 +50,6 @@ namespace G04_DBI_Trainings_Adventure
                 connection.Open();
                 SqliteCommand command = connection.CreateCommand();
 
-
                 command.CommandText = @"SELECT Datum FROM TrainingDetails GROUP BY Datum;";
 
                 using (SqliteDataReader reader = command.ExecuteReader())
@@ -61,10 +60,9 @@ namespace G04_DBI_Trainings_Adventure
 
                         LoadExercises(reader.GetString(0), work.Training);
 
-
+                        
 
                         HomeStack.Children.Add(work);
-
                     }
                 }
             }
@@ -85,8 +83,8 @@ namespace G04_DBI_Trainings_Adventure
                     while (reader.Read())
                     {
                         Exercise exercise = new Exercise();
-                 
-                  
+
+
                         var Name = new TextBlock();
                         var Skill = new TextBlock();
                         var Duration = new TextBlock();
@@ -100,9 +98,9 @@ namespace G04_DBI_Trainings_Adventure
                         Name.Text = reader.GetString(3);
                         Duration.Text = reader.GetString(1);
 
-                       exercise.ExerciseGrid.Children.Add(Name);
-                       exercise.ExerciseGrid.Children.Add(Skill);
-                       exercise.ExerciseGrid.Children.Add(Duration );
+                        exercise.ExerciseGrid.Children.Add(Name);
+                        exercise.ExerciseGrid.Children.Add(Skill);
+                        exercise.ExerciseGrid.Children.Add(Duration);
 
 
                         Grid.SetRow(Skill, 0);
@@ -111,10 +109,10 @@ namespace G04_DBI_Trainings_Adventure
                         Grid.SetRow(Name, 1);
                         Grid.SetColumn(Name, 0);
 
-             
+
                         ExcersiseStack.Children.Add(exercise);
-                        
-                    
+
+
                     }
                 }
 
@@ -125,7 +123,7 @@ namespace G04_DBI_Trainings_Adventure
 
         public void LoadDataToEdit(string Datum, WorkoutEdit workout)
         {
-       
+
             using (SqliteConnection connection = new SqliteConnection(srcString))
             {
                 connection.Open();
@@ -136,12 +134,12 @@ namespace G04_DBI_Trainings_Adventure
 
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
-                
+
                     workout.ExerciseStack.Children.Clear();
                     while (reader.Read())
                     {
-                        
-                        List<string> Data = new List<string>(); 
+
+                        List<string> Data = new List<string>();
 
                         Data.Add(reader.GetString(0));
                         Data.Add(reader.GetString(1));
@@ -150,24 +148,23 @@ namespace G04_DBI_Trainings_Adventure
                         Data.Add(reader.GetString(5));
 
 
-                        
+
                         ExerciseEdit exerciseToEdit = new ExerciseEdit(Data);
 
-                    
+
                         workout.ExerciseStack.Children.Add(exerciseToEdit);
 
                     }
 
-                  
+
                 }
-      
+
             }
         }
 
 
         public void UpdateTrainingDay(StackPanel exer, string oldDate, string newDate)
         {
-            // Error of Loading here
 
             using (SqliteConnection connection = new SqliteConnection(srcString))
             {
@@ -189,78 +186,21 @@ namespace G04_DBI_Trainings_Adventure
                     }
                 }
 
-     
+
                 foreach (ExerciseEdit ex in exer.Children)
                 {
+
                     command.CommandText = @$"UPDATE Training
                                         SET
                                         fkUebung = '{ex.ExersiceCombo.SelectedIndex + 1}',
                                         Dauer = '{int.Parse(ex.TimeSpan.Text)}',
-                                        Schwierigkeit = '{ex.DifficultyCombo.SelectedIndex + 1}'
-                                        WHERE  ID = {ex.ID} AND fkTag = {newID};";
+                                        Schwierigkeit = {ex.DifficultyCombo.SelectedIndex + 1}
+                                        WHERE  ID = {ex.ID}";
 
                     command.ExecuteNonQuery();
                 }
 
-                
-
-
-
-
-
-
-
-
-
             }
         }
-
-
-
-        public void LoadoneWorkout(string Date, Workout workout)
-        {
-            using (SqliteConnection connection = new SqliteConnection(srcString))
-            {
-                connection.Open();
-                SqliteCommand command = connection.CreateCommand();
-
-                command.CommandText = $"SELECT * FROM TrainingDetails WHERE Datum = '{Date}';";
-
-                using (SqliteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Exercise exercise = new Exercise();
-                        var Name = new TextBlock();
-                        var Skill = new TextBlock();
-                        var Duration = new TextBlock();
-
-                        Skill.Text = "";
-                        for (int i = 0; i < reader.GetInt32(2); i++)
-                        {
-                            Skill.Text += "*";
-                        }
-
-                        Name.Text = reader.GetString(3);
-                        Duration.Text = reader.GetString(1);
-
-                        exercise.ExerciseGrid.Children.Add(Name);
-                        exercise.ExerciseGrid.Children.Add(Skill);
-                        exercise.ExerciseGrid.Children.Add(Duration);
-
-                        workout.Training.Children.Add(exercise);
-
-                        Grid.SetRow(Skill, 0);
-                        Grid.SetRow(Duration, 1);
-                        Grid.SetColumn(Duration, 1);
-                        Grid.SetRow(Name, 1);
-                        Grid.SetColumn(Name, 0);
-                    }
-                }
-            }
-        }
-
-
-
     }
 }

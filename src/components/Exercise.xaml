@@ -10,7 +10,7 @@
 
     
 
-    <Grid Background="Transparent" x:Name="ExerciseGrid">
+    <Grid Background="Transparent" x:Name="ExerciseGrid" HorizontalAlignment="Stretch">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

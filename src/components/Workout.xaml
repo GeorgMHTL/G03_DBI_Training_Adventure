@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure.components"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Width="auto">
 
 
     <UserControl.Resources>
@@ -29,28 +30,20 @@
 
 
     <Grid Background="#5D5D5D" Margin="10" >
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
-            
-
         </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-
-        <TextBlock x:Name="Date" Style="{StaticResource DateText}"  Grid.Row="0" Text="asdfsdf" />
-      
-
-        <StackPanel x:Name="Training" Background="Gray" Grid.Row="1" Grid.ColumnSpan="2">
-
+        <TextBlock x:Name="Date" Style="{StaticResource DateText}" Grid.Row="0" Text="asdfsdf" />
+        <StackPanel x:Name="Training" Background="Gray" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            
         </StackPanel>
-
-        <Button x:Name="BtnDel"  Grid.Row="0"  Grid.Column="1" Click="BtnDel_Click" Style="{StaticResource RoundButton}">
+        <Button x:Name="BtnDel" Grid.Row="0" Grid.Column="1" Click="BtnDel_Click" Style="{StaticResource RoundButton}">
             <Viewbox Width="25" Height="25">
                 <Canvas Width="16" Height="16">
                     <Path Fill="White" Data="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z"/>
@@ -58,10 +51,6 @@
                 </Canvas>
             </Viewbox>
         </Button>
-
-
-
-        <Button Grid.Row="2" Grid.Column="1" Click="Button_Click" >EDIT</Button>
-
+        <Button Grid.Row="2" Grid.Column="1" Click="Button_Click">EDIT</Button>
     </Grid>
 </UserControl>
