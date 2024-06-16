@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace G04_DBI_Trainings_Adventure
 {
@@ -54,15 +55,16 @@ public class DataTransport
 
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
+                 
                     while (reader.Read())
                     {
                         Workout work = new Workout(reader.GetString(0));
 
                         LoadExercises(reader.GetString(0), work.Training);
 
-                        
 
                         HomeStack.Children.Add(work);
+          
                     }
                 }
             }
@@ -89,6 +91,11 @@ public class DataTransport
                         var Skill = new TextBlock();
                         var Duration = new TextBlock();
 
+                  
+                        Name.Foreground = new SolidColorBrush(Color.FromRgb(0xBB, 0xE1, 0xFA));
+                        Skill.Foreground = new SolidColorBrush(Color.FromRgb(0xBB, 0xE1, 0xFA));
+                        Duration.Foreground = new SolidColorBrush(Color.FromRgb(0xBB, 0xE1, 0xFA));
+
                         Skill.Text = "";
                         for (int i = 0; i < reader.GetInt32(2); i++)
                         {
@@ -102,12 +109,19 @@ public class DataTransport
                         exercise.ExerciseGrid.Children.Add(Skill);
                         exercise.ExerciseGrid.Children.Add(Duration);
 
-
-                        Grid.SetRow(Skill, 0);
-                        Grid.SetRow(Duration, 1);
-                        Grid.SetColumn(Duration, 1);
                         Grid.SetRow(Name, 1);
                         Grid.SetColumn(Name, 0);
+
+
+                        Grid.SetRow(Skill, 1);
+                        Grid.SetColumn(Skill, 1);
+                        
+
+                        Grid.SetRow(Duration, 1);
+                        Grid.SetColumn(Duration, 2);
+                    
+
+
 
 
                         ExcersiseStack.Children.Add(exercise);

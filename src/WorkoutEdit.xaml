@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
         Title="WorkoutEdit" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="10" >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>

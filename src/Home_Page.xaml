@@ -8,37 +8,21 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home_Page">
 
-    <Grid>
+    <Grid Background="#0C2D40">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        
-        
-        <Button Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" BorderThickness="0" Click="BackButton_Click">
-            <Viewbox Width="50" Height="50">
-                <Path Fill="Black" Data="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8m-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5">
-                    <Path.RenderTransform>
-                        <ScaleTransform ScaleX="-1" CenterX="8"/>
-                    </Path.RenderTransform>
-                </Path>
-            </Viewbox>
-    
-            
-        </Button>
 
-        <ScrollViewer Grid.Column="1" Name="scrollViewer" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch" Background="Aqua" VerticalScrollBarVisibility="Disabled" Margin="60,0,60,0">
-            <StackPanel Orientation="Horizontal" x:Name="Days" HorizontalAlignment="Center">
+        <ScrollViewer Grid.Column ="1">
+            <StackPanel Background="Transparent" x:Name="Days"  HorizontalAlignment="Stretch">
             </StackPanel>
+
         </ScrollViewer>
-        
-        <Button Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ForwardButton_Click" Background="Transparent" BorderThickness="0" >
-            <Viewbox Width="50" Height="50">
-                <Path Fill="Black" Data="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8m-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5"/>
-            </Viewbox>
-        
-        </Button>
+
+
+       
     </Grid>
 </Page>

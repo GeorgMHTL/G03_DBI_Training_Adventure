@@ -11,10 +11,10 @@
 
     <UserControl.Resources>
         <Style TargetType="TextBlock" x:Key="DateText">
-            <Setter Property="Background" Value="#5D5D5D"/>
+            <Setter Property="Background" Value="#2677AD"/>
        
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="#1B262C"/>
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
@@ -29,7 +29,7 @@
     </UserControl.Resources>
 
 
-    <Grid Background="#5D5D5D" Margin="10" >
+    <Grid Background="#2677AD" Margin="10"  >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
@@ -40,7 +40,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="Date" Style="{StaticResource DateText}" Grid.Row="0" Text="asdfsdf" />
-        <StackPanel x:Name="Training" Background="Gray" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+        <StackPanel x:Name="Training" Background="#2677AD" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
             
         </StackPanel>
         <Button x:Name="BtnDel" Grid.Row="0" Grid.Column="1" Click="BtnDel_Click" Style="{StaticResource RoundButton}">
