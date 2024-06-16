@@ -6,28 +6,163 @@
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
         Title="WorkoutEdit" Height="450" Width="800">
-    <Grid Margin="10" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
 
-        </Grid.RowDefinitions>
+    <Window.Resources>
+        <!-- Define the missing brushes -->
+        <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="Red"/>
+        <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="Pink"/>
+        <SolidColorBrush x:Key="ComboBoxPressedBackgroundBrush" Color="Aqua"/>
+        <SolidColorBrush x:Key="ComboBoxDisabledBackgroundBrush" Color="Yellow"/>
+        <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="MediumSpringGreen"/>
+        <SolidColorBrush x:Key="ComboBoxItemHighlightBackgroundBrush" Color="Green"/>
+        <SolidColorBrush x:Key="ComboBoxItemHighlightForegroundBrush" Color="Black"/>
+        <SolidColorBrush x:Key="ComboBoxItemDisabledForegroundBrush" Color="DarkGray"/>
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="DarkGray"/>
+        <SolidColorBrush x:Key="SolidBorderBrush" Color="Gray"/>
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="White"/>
 
-        <TextBlock Grid.Row="0">Datum</TextBlock>
-        <ComboBox Grid.Row="1" x:Name="DateCombo"></ComboBox>
+        <!-- ComboBox ToggleButton Style -->
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Border Name="Border"
+                        Grid.ColumnSpan="2"
+                        Background="{StaticResource ComboBoxNormalBackgroundBrush}"
+                        BorderBrush="{StaticResource ComboBoxNormalBorderBrush}"
+                        BorderThickness="1"/>
+                <Border Grid.Column="1"
+                        BorderBrush="Transparent"
+                        BorderThickness="1"
+                        Background="Transparent"
+                        Margin="0,0,1,0">
+                    <Path Name="Arrow" 
+                          Data="M 0 0 L 4 4 L 8 0 Z"
+                          Fill="Black"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"/>
+                </Border>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter TargetName="Border" Property="Background" Value="{StaticResource ComboBoxPressedBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter TargetName="Border" Property="Background" Value="{StaticResource ComboBoxDisabledBackgroundBrush}"/>
+                    <Setter Property="Foreground" Value="{StaticResource ComboBoxDisabledForegroundBrush}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <!-- ComboBox Style -->
+        <Style TargetType="ComboBox" x:Key="CustomComboBoxStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton Name="ToggleButton"
+                                          Template="{StaticResource ComboBoxToggleButton}"
+                                          Grid.Column="2"
+                                          Focusable="False"
+                                          IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                          ClickMode="Press">
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite"
+                                              IsHitTestVisible="False"
+                                              Content="{TemplateBinding SelectionBoxItem}"
+                                              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                              Margin="3,3,23,3"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Left">
+                            </ContentPresenter>
+                            <Popup Name="Popup"
+                                   Placement="Bottom"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   AllowsTransparency="True"
+                                   Focusable="False"
+                                   PopupAnimation="Slide">
+                                <Grid Name="DropDown"
+                                      SnapsToDevicePixels="True"
+                                      MinWidth="{TemplateBinding ActualWidth}"
+                                      MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border Name="DropDownBorder"
+                                            Background="{StaticResource WindowBackgroundBrush}"
+                                            BorderBrush="{StaticResource SolidBorderBrush}"
+                                            BorderThickness="1"/>
+                                    <ScrollViewer Margin="4,6,4,6"
+                                                  SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True"
+                                                    KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasItems" Value="False">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="True">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
+                            </Trigger>
+                            <Trigger SourceName="Popup" Property="AllowsTransparency" Value="True">
+                                <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="0,0,0,0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ComboBoxItem Style -->
+        <Style TargetType="ComboBoxItem" x:Key="CustomComboBoxItemStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border Name="Border"
+                                Padding="4"
+                                Background="Transparent">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource ComboBoxItemHighlightBackgroundBrush}"/>
+                                <Setter Property="Foreground" Value="{StaticResource ComboBoxItemHighlightForegroundBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{StaticResource ComboBoxItemDisabledForegroundBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
 
-        <StackPanel x:Name="ExerciseStack" Background="AliceBlue" Grid.Row="2">
+    <Grid Background="#0F4C75">
+        <Grid Margin="10" Background="#0F4C75">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
+            <TextBlock Grid.Row="0" Background="Transparent" FontFamily="Inter" Foreground="White">Datum</TextBlock>
+            <ComboBox Grid.Row="1" x:Name="DateCombo" Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"></ComboBox>
 
-        </StackPanel>
+            <StackPanel x:Name="ExerciseStack" Background="Transparent" Grid.Row="2">
+            </StackPanel>
 
-        <StackPanel Grid.Row="3">
-            <Button Click="Button_Click">Ok</Button>
-        </StackPanel>
-
-
+            <StackPanel Grid.Row="3" Background="Transparent">
+                <Button Click="Button_Click">Ok</Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

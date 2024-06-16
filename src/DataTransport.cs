@@ -118,7 +118,7 @@ public class DataTransport
                         }
 
                         Name.Text = reader.GetString(3);
-                        Duration.Text = reader.GetString(1);
+                        Duration.Text = reader.GetString(1)+"s";
 
                         exercise.ExerciseGrid.Children.Add(Name);
                         exercise.ExerciseGrid.Children.Add(Skill);
