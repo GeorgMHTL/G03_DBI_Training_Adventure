@@ -12,7 +12,8 @@
     <Border BorderBrush="#0F4C75" BorderThickness="2" Background="#0F4C75" Padding="10" CornerRadius="10" Margin="5" >
 
 
-        <Grid Background="Transparent" x:Name="ExerciseGrid" HorizontalAlignment="Stretch"  >
+        
+        <Grid  Background="Transparent" x:Name="ExerciseGrid" HorizontalAlignment="Stretch"  >
  
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>

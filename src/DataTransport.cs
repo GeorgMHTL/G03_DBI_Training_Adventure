@@ -96,6 +96,21 @@ public class DataTransport
                         Skill.Foreground = new SolidColorBrush(Color.FromRgb(0xBB, 0xE1, 0xFA));
                         Duration.Foreground = new SolidColorBrush(Color.FromRgb(0xBB, 0xE1, 0xFA));
 
+                        Name.FontFamily = new FontFamily("Inter");
+                        Name.FontWeight = FontWeights.Bold;
+                        Name.FontSize = 24;
+
+                        Skill.FontFamily = new FontFamily("Inter");
+                        Skill.FontWeight = FontWeights.Bold;
+                        Skill.FontSize = 24;
+
+
+                        Duration.FontFamily = new FontFamily("Inter");
+                        Duration.FontWeight = FontWeights.Bold;
+                        Duration.FontSize = 24;
+
+
+
                         Skill.Text = "";
                         for (int i = 0; i < reader.GetInt32(2); i++)
                         {
