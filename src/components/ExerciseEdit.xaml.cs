@@ -22,11 +22,14 @@ namespace G04_DBI_Trainings_Adventure.components
     {
         private DataTransport dataTransport = new DataTransport("Data Source=assets/TrainingsDoku.db");
         private string[] difficulty = { "1", "2", "3", "4", "5" };
+        public int ID { get; private set; }
         public ExerciseEdit(List<string> Data)
         {
 
             InitializeComponent();
             LoadDefaultData(Data);
+
+            this.ID = Convert.ToInt32(Data[4]);
 
         }
 

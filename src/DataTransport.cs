@@ -148,6 +148,7 @@ namespace G04_DBI_Trainings_Adventure
                         Data.Add(reader.GetString(1));
                         Data.Add(reader.GetString(2));
                         Data.Add(reader.GetString(3));
+                        Data.Add(reader.GetString(5));
 
 
                         
@@ -189,32 +190,20 @@ namespace G04_DBI_Trainings_Adventure
                     }
                 }
 
-                command.CommandText = $@"SELECT ID from Training WHERE fkTag= {newID}";
-
-                List<int> TrainingIDs = new List<int>();
-                using (SqliteDataReader reader = command.ExecuteReader())
+     
+                foreach (ExerciseEdit ex in exer.Children)
                 {
-                    while (reader.Read())
-                    {
-                        TrainingIDs.Add(reader.GetInt32(0));
+                    command.CommandText = @$"UPDATE Training
+                                        SET
+                                        fkUebung = '{ex.ExersiceCombo.SelectedIndex + 1}',
+                                        Dauer = '{int.Parse(ex.TimeSpan.Text)}',
+                                        Schwierigkeit = '{ex.DifficultyCombo.SelectedIndex + 1}'
+                                        WHERE  ID = {ex.ID} AND fkTag = {newID};";
 
-                    }
+                    command.ExecuteNonQuery();
                 }
-                foreach (int id in TrainingIDs)
-                {
-                    foreach (ExerciseEdit ex in exer.Children)
-                    {
-                        command.CommandText = @$"UPDATE Training
-                                            SET
-                                            fkUebung = '{ex.ExersiceCombo.SelectedIndex + 1}',
-                                            Dauer = '{int.Parse(ex.TimeSpan.Text)}',
-                                            Schwierigkeit = '{ex.DifficultyCombo.SelectedIndex + 1}'
-                                            WHERE  ID = {id} AND fkTag = {newID};";
 
-                        command.ExecuteNonQuery();
-                    }
-
-                }
+                
 
 
 

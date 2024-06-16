@@ -27,7 +27,7 @@ namespace G04_DBI_Trainings_Adventure
                 connection.Open();
                 SqliteCommand command = connection.CreateCommand();
 
-                command.CommandText = "SELECT Name, COUNT(*) FROM TrainingDetails GROUP BY Name;";
+                command.CommandText = "SELECT UebungName, COUNT(*) FROM TrainingDetails GROUP BY UebungName;";
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())

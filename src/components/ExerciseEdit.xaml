@@ -32,6 +32,11 @@
         
         <TextBlock Grid.Row="2">Schwierigkeitsgrad</TextBlock>
         <ComboBox x:Name="DifficultyCombo" Grid.Row="3">
+            <ComboBoxItem>*</ComboBoxItem>
+            <ComboBoxItem>**</ComboBoxItem>
+            <ComboBoxItem>****</ComboBoxItem>
+            <ComboBoxItem>*****</ComboBoxItem>
+            <ComboBoxItem>******</ComboBoxItem>
         </ComboBox>
 
         <TextBlock Grid.Row="4">Dauer</TextBlock>
