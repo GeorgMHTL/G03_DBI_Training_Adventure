@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
         Title="Tag hinzufügen" Height="300" Width="400">
-    <Grid>
+    <Grid Background="#0F4C75">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -27,12 +27,12 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBox x:Name="TBDuration" Grid.Column="0" Grid.Row="0" FontSize="20" VerticalAlignment="Center"/>
-            <Label Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Content="s"/>
+            <Label Grid.Row="0" Foreground="White" Grid.Column="1" VerticalAlignment="Center" Content="s"/>
         </Grid>
-        <Label Content="Datum" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Dauer" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Schwierigkeit" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Übung" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Datum" Foreground="White" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Dauer" Foreground="White" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Schwierigkeit" Foreground="White" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Übung" Foreground="White" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <ComboBox x:Name="CBDate" Grid.Column="1" FontSize="20" VerticalAlignment="Center"/>
         <ComboBox x:Name="CBDiff" Grid.Column="1" Grid.Row="2" FontSize="20" VerticalAlignment="Center">
             <ComboBoxItem Content="1"/>
@@ -42,7 +42,7 @@
             <ComboBoxItem Content="5"/>
         </ComboBox>
         <ComboBox x:Name="CBExercise" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center"/>
-        <Button x:Name="BtnAdd" IsDefault="True" Content="Hinzufügen" Grid.Column="0" Grid.Row="4" Click="BtnAdd_Click"/>
-        <Button x:Name="BtnCancel" Content="Abbrechen" Grid.Column="1" Grid.Row="4" Click="BtnCancel_Click"/>
+        <Button x:Name="BtnAdd" Background="DarkBlue" Foreground="White" IsDefault="True" Content="Hinzufügen" Grid.Column="0" Grid.Row="4" Click="BtnAdd_Click"/>
+        <Button x:Name="BtnCancel" Background="DarkBlue" Foreground="White" Content="Abbrechen" Grid.Column="1" Grid.Row="4" Click="BtnCancel_Click"/>
     </Grid>
 </Window>

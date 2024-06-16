@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace G04_DBI_Trainings_Adventure
 {
@@ -54,6 +55,7 @@ namespace G04_DBI_Trainings_Adventure
                 {
                     new Axis
                     {
+                        Foreground = Brushes.Black,
                         Title = "Übungen",
                         Labels = statsData.Keys.ToList()
                     }
@@ -62,6 +64,7 @@ namespace G04_DBI_Trainings_Adventure
                 {
                     new Axis
                     {
+                        Foreground = Brushes.Black,
                         Title = "Anzahl",
                         Separator = new LiveCharts.Wpf.Separator
                         {

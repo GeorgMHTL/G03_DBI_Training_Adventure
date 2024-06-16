@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
-        Title="AddExerciseWindow" Height="300" Width="500">
-    <Grid>
+        Title="Übung hinzufügen" Height="200" Width="500">
+    <Grid Background="#0F4C75">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -16,11 +16,11 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
-        <Label Content="Übung:" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TBExercise" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center"/>
-        <Label Content="Muskelgruppen (mit ',' trennen):" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TBDescription" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center"/>
-        <Button x:Name="BtnAdd" Content="Hinzufügen" Grid.Row="2" Grid.Column="0" Click="BtnAdd_Click"/>
-        <Button x:Name="BtnCancel" Content="Abbrechen" Grid.Row="2" Grid.Column="1" Click="BtnCancel_Click"/>
+        <Label Content="Übung:" Foreground="White" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TBExercise" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"/>
+        <Label Content="Muskelgruppen (mit ',' trennen):" Foreground="White" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TBDescription" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+        <Button x:Name="BtnAdd" Background="DarkBlue" Foreground="White" Content="Hinzufügen" Grid.Row="2" Grid.Column="0" Click="BtnAdd_Click"/>
+        <Button x:Name="BtnCancel" Background="DarkBlue" Foreground="White" Content="Abbrechen" Grid.Row="2" Grid.Column="1" Click="BtnCancel_Click"/>
     </Grid>
 </Window>
