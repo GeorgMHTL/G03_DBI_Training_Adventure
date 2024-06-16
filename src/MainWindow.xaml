@@ -54,7 +54,7 @@
 
             </Button>
 
-            <Button>For JoudiButton</Button>
+            <Button x:Name="BtnAddExercise" Click="BtnAddExercise_Click">Übung hinzufügen</Button>
         </StackPanel>
 
         <Frame x:Name="ContentFrame" Background="White" NavigationUIVisibility="Hidden"  Grid.Row="1">

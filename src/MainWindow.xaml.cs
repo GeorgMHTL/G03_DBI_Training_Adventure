@@ -41,9 +41,9 @@ namespace G04_DBI_Trainings_Adventure
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            ConnectWindow connect = new ConnectWindow();
-
-            if (connect.ShowDialog() == true)
+            AddWindow addWindow = new AddWindow();
+            
+            if (addWindow.ShowDialog() == true)
             {
 
             }
@@ -60,6 +60,14 @@ namespace G04_DBI_Trainings_Adventure
             }
         }
 
+        private void BtnAddExercise_Click(object sender, RoutedEventArgs e)
+        {
+            AddExerciseWindow addExerciseWindow = new AddExerciseWindow();
+            
+            if (addExerciseWindow.ShowDialog() == true)
+            {
 
+            }
+        }
     }
 }
