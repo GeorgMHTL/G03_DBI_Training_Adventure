@@ -48,12 +48,21 @@ namespace G04_DBI_Trainings_Adventure
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DataTransport DB = new DataTransport("Data Source=assets/TrainingsDoku.db");
-            DB.UpdateTrainingDay(ExerciseStack, OldDate, DateCombo.SelectedItem.ToString());
+            try
+            {
+                DataTransport DB = new DataTransport("Data Source=assets/TrainingsDoku.db");
+                DB.UpdateTrainingDay(ExerciseStack, OldDate, DateCombo.SelectedItem.ToString());
 
-            EventAggregator.RaiseDataUpdated();
+                EventAggregator.RaiseDataUpdated();
 
-            DialogResult = true;
+                DialogResult = true;
+
+            }
+            catch 
+            {
+                MessageBox.Show("Die Dauer kann nur Zahlen enthalten");
+            }
+
         }
 
 

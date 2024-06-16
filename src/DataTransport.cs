@@ -108,6 +108,7 @@ public class DataTransport
                         Duration.FontFamily = new FontFamily("Inter");
                         Duration.FontWeight = FontWeights.Bold;
                         Duration.FontSize = 24;
+                        Duration.HorizontalAlignment = HorizontalAlignment.Right;
 
 
 
@@ -124,18 +125,18 @@ public class DataTransport
                         exercise.ExerciseGrid.Children.Add(Skill);
                         exercise.ExerciseGrid.Children.Add(Duration);
 
-                        Grid.SetRow(Name, 1);
-                        Grid.SetColumn(Name, 0);
+                        Grid.SetRow(Name, 2);
+                        Grid.SetColumn(Name, 1);
 
 
-                        Grid.SetRow(Skill, 1);
-                        Grid.SetColumn(Skill, 1);
+                        Grid.SetRow(Skill, 2);
+                        Grid.SetColumn(Skill, 2);
                         
 
-                        Grid.SetRow(Duration, 1);
-                        Grid.SetColumn(Duration, 2);
+                        Grid.SetRow(Duration, 2);
+                        Grid.SetColumn(Duration, 3);
                     
-
+                        exercise.InfoText.Text = reader.GetString(4);
 
 
 
