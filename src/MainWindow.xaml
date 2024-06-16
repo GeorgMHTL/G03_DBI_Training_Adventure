@@ -53,6 +53,8 @@
                 </Viewbox>
 
             </Button>
+
+            <Button>For JoudiButton</Button>
         </StackPanel>
 
         <Frame x:Name="ContentFrame" Background="White" NavigationUIVisibility="Hidden"  Grid.Row="1">
