@@ -20,17 +20,19 @@ namespace G04_DBI_Trainings_Adventure
     public partial class ExerciseStatWindow : Window
     {
         ExerciseStatistic exerciseStatistic = new ExerciseStatistic();
-
+        
         public ExerciseStatWindow()
         {
             InitializeComponent();
-
+            
             exerciseStatistic.VisualizeStats(CanvasDraw);
         }
 
         private void CanvasDraw_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             exerciseStatistic.VisualizeStats(CanvasDraw);
+
+
         }
     }
 }

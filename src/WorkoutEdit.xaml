@@ -9,17 +9,17 @@
 
     <Window.Resources>
         <!-- Define the missing brushes -->
-        <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="Red"/>
-        <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="Pink"/>
-        <SolidColorBrush x:Key="ComboBoxPressedBackgroundBrush" Color="Aqua"/>
+        <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="#3282B8"/>
+        <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="#1B262C"/>
+        <SolidColorBrush x:Key="ComboBoxPressedBackgroundBrush" Color="#3282B8"/>
         <SolidColorBrush x:Key="ComboBoxDisabledBackgroundBrush" Color="Yellow"/>
         <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="MediumSpringGreen"/>
-        <SolidColorBrush x:Key="ComboBoxItemHighlightBackgroundBrush" Color="Green"/>
-        <SolidColorBrush x:Key="ComboBoxItemHighlightForegroundBrush" Color="Black"/>
-        <SolidColorBrush x:Key="ComboBoxItemDisabledForegroundBrush" Color="DarkGray"/>
-        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="DarkGray"/>
+        <SolidColorBrush x:Key="ComboBoxItemHighlightBackgroundBrush" Color="#0F4C75"/>
+        <SolidColorBrush x:Key="ComboBoxItemHighlightForegroundBrush" Color="White"/>
+        <SolidColorBrush x:Key="ComboBoxItemDisabledForegroundBrush" Color="Magenta"/>
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="DarkBlue"/>
         <SolidColorBrush x:Key="SolidBorderBrush" Color="Gray"/>
-        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="White"/>
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#3282B8"/>
 
         <!-- ComboBox ToggleButton Style -->
         <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
@@ -155,13 +155,13 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" Background="Transparent" FontFamily="Inter" Foreground="White">Datum</TextBlock>
-            <ComboBox Grid.Row="1" x:Name="DateCombo" Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"></ComboBox>
+            <ComboBox Grid.Row="1" x:Name="DateCombo" Foreground="White" Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"></ComboBox>
 
             <StackPanel x:Name="ExerciseStack" Background="Transparent" Grid.Row="2">
             </StackPanel>
 
             <StackPanel Grid.Row="3" Background="Transparent">
-                <Button Click="Button_Click">Ok</Button>
+                <Button Click="Button_Click" Background="#3282B8">Ok</Button>
             </StackPanel>
         </Grid>
     </Grid>

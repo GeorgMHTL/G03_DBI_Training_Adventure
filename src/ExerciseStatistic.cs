@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace G04_DBI_Trainings_Adventure
 {
@@ -45,33 +46,39 @@ namespace G04_DBI_Trainings_Adventure
             var columnSeries = new ColumnSeries()
             {
                 Title = "Gemachte Übungen",
-                Values = statsData.Values.AsChartValues()
+                Values = statsData.Values.AsChartValues(),
+                Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255)) 
             };
             var chart = new CartesianChart()
             {
                 Series = new SeriesCollection { columnSeries },
                 AxisX = new AxesCollection
-                {
-                    new Axis
                     {
-                        Title = "Übungen",
-                        Labels = statsData.Keys.ToList()
-                    }
-                },
-                AxisY = new AxesCollection
-                {
-                    new Axis
-                    {
-                        Title = "Anzahl",
-                        Separator = new LiveCharts.Wpf.Separator
+                        new Axis
                         {
-                            Step = 1
+                            Title = "Übungen",
+                            Labels = statsData.Keys.ToList()
+
                         }
-                    }
-                },
+                    },
+                AxisY = new AxesCollection
+                    {
+                        new Axis
+                        {
+                            Title = "Anzahl",
+                            Separator = new LiveCharts.Wpf.Separator
+                            {
+                                Step = 1
+                            }
+                        }
+                    },
                 Width = canvas.ActualWidth,
-                Height = canvas.ActualHeight
+                Height = canvas.ActualHeight,
+
+                Background = new SolidColorBrush(Color.FromRgb(50, 130, 184)),
+
             };
+
             canvas.Children.Add(chart);
         }
     }

@@ -6,9 +6,163 @@
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
         Title="Tag hinzufügen" Height="300" Width="400">
-    <Grid>
+
+
+
+    <Window.Resources>
+        <!-- Define the missing brushes -->
+        <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="#3282B8"/>
+        <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="#1B262C"/>
+        <SolidColorBrush x:Key="ComboBoxPressedBackgroundBrush" Color="#3282B8"/>
+        <SolidColorBrush x:Key="ComboBoxDisabledBackgroundBrush" Color="Yellow"/>
+        <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="MediumSpringGreen"/>
+        <SolidColorBrush x:Key="ComboBoxItemHighlightBackgroundBrush" Color="#0F4C75"/>
+        <SolidColorBrush x:Key="ComboBoxItemHighlightForegroundBrush" Color="White"/>
+        <SolidColorBrush x:Key="ComboBoxItemDisabledForegroundBrush" Color="Magenta"/>
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="DarkBlue"/>
+        <SolidColorBrush x:Key="SolidBorderBrush" Color="Gray"/>
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#3282B8"/>
+
+        <!-- ComboBox ToggleButton Style -->
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Border Name="Border"
+                        Grid.ColumnSpan="2"
+                        Background="{StaticResource ComboBoxNormalBackgroundBrush}"
+                        BorderBrush="{StaticResource ComboBoxNormalBorderBrush}"
+                        BorderThickness="1"/>
+                <Border Grid.Column="1"
+                        BorderBrush="Transparent"
+                        BorderThickness="1"
+                        Background="Transparent"
+                        Margin="0,0,1,0">
+                    <Path Name="Arrow" 
+                          Data="M 0 0 L 4 4 L 8 0 Z"
+                          Fill="Black"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"/>
+                </Border>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter TargetName="Border" Property="Background" Value="{StaticResource ComboBoxPressedBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter TargetName="Border" Property="Background" Value="{StaticResource ComboBoxDisabledBackgroundBrush}"/>
+                    <Setter Property="Foreground" Value="{StaticResource ComboBoxDisabledForegroundBrush}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <!-- ComboBox Style -->
+        <Style TargetType="ComboBox" x:Key="CustomComboBoxStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton Name="ToggleButton"
+                                          Template="{StaticResource ComboBoxToggleButton}"
+                                          Grid.Column="2"
+                                          Focusable="False"
+                                          IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                          ClickMode="Press">
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite"
+                                              IsHitTestVisible="False"
+                                              Content="{TemplateBinding SelectionBoxItem}"
+                                              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                              Margin="3,3,23,3"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Left">
+                            </ContentPresenter>
+                            <Popup Name="Popup"
+                                   Placement="Bottom"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   AllowsTransparency="True"
+                                   Focusable="False"
+                                   PopupAnimation="Slide">
+                                <Grid Name="DropDown"
+                                      SnapsToDevicePixels="True"
+                                      MinWidth="{TemplateBinding ActualWidth}"
+                                      MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border Name="DropDownBorder"
+                                            Background="{StaticResource WindowBackgroundBrush}"
+                                            BorderBrush="{StaticResource SolidBorderBrush}"
+                                            BorderThickness="1"/>
+                                    <ScrollViewer Margin="4,6,4,6"
+                                                  SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True"
+                                                    KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasItems" Value="False">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="True">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
+                            </Trigger>
+                            <Trigger SourceName="Popup" Property="AllowsTransparency" Value="True">
+                                <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="0,0,0,0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ComboBoxItem Style -->
+        <Style TargetType="ComboBoxItem" x:Key="CustomComboBoxItemStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border Name="Border"
+                                Padding="4"
+                                Background="Transparent">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource ComboBoxItemHighlightBackgroundBrush}"/>
+                                <Setter Property="Foreground" Value="{StaticResource ComboBoxItemHighlightForegroundBrush}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{StaticResource ComboBoxItemDisabledForegroundBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="TextBlockStyle">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#3282B8"/>
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+
+
+        </Style>
+    </Window.Resources>
+
+
+
+
+
+    <Grid Background="#0F4C75">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -18,6 +172,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
@@ -26,23 +181,28 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="TBDuration" Grid.Column="0" Grid.Row="0" FontSize="20" VerticalAlignment="Center"/>
-            <Label Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Content="s"/>
+            <TextBox x:Name="TBDuration" Grid.Column="0" Grid.Row="0" FontSize="20" VerticalAlignment="Center"  Style="{StaticResource TextBlockStyle}"/>
+            <Label Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Content="s" Foreground="White"/>
         </Grid>
-        <Label Content="Datum" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Dauer" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Schwierigkeit" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Content="Übung" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <ComboBox x:Name="CBDate" Grid.Column="1" FontSize="20" VerticalAlignment="Center"/>
-        <ComboBox x:Name="CBDiff" Grid.Column="1" Grid.Row="2" FontSize="20" VerticalAlignment="Center">
+        
+        <Label Content="Datum" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+        <Label Content="Dauer" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+        <Label Content="Schwierigkeit" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+        <Label Content="Übung" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+
+        <ComboBox x:Name="CBDate" Grid.Column="1" FontSize="20" VerticalAlignment="Center" Foreground="White" Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"/>
+
+        <ComboBox x:Name="CBDiff" Grid.Column="1" Grid.Row="2" FontSize="20" VerticalAlignment="Center" Foreground="White" Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}">
             <ComboBoxItem Content="1"/>
             <ComboBoxItem Content="2"/>
             <ComboBoxItem Content="3"/>
             <ComboBoxItem Content="4"/>
             <ComboBoxItem Content="5"/>
         </ComboBox>
-        <ComboBox x:Name="CBExercise" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center"/>
-        <Button x:Name="BtnAdd" IsDefault="True" Content="Hinzufügen" Grid.Column="0" Grid.Row="4" Click="BtnAdd_Click"/>
-        <Button x:Name="BtnCancel" Content="Abbrechen" Grid.Column="1" Grid.Row="4" Click="BtnCancel_Click"/>
+
+        <ComboBox x:Name="CBExercise" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Foreground="White" Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"/>
+
+        <Button x:Name="BtnAdd" Background="#3282B8" IsDefault="True" Content="Hinzufügen" Grid.Column="0" Grid.Row="4" Click="BtnAdd_Click" Foreground="White"/>
+        <Button x:Name="BtnCancel" Background="#3282B8" Content="Abbrechen" Grid.Column="1" Grid.Row="4" Click="BtnCancel_Click" Foreground="White"/>
     </Grid>
 </Window>

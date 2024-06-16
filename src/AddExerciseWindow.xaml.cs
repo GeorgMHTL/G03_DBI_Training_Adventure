@@ -46,9 +46,6 @@ namespace G04_DBI_Trainings_Adventure
             }
         }
 
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+
     }
 }

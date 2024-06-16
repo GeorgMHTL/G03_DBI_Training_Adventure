@@ -5,22 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
-        Title="AddExerciseWindow" Height="300" Width="500">
-    <Grid>
+        Title="AddExerciseWindow" Height="200" Width="500">
+    <Grid Background="#0F4C75">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Label Content="Übung:" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TBExercise" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center"/>
-        <Label Content="Muskelgruppen (mit ',' trennen):" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TBDescription" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center"/>
-        <Button x:Name="BtnAdd" Content="Hinzufügen" Grid.Row="2" Grid.Column="0" Click="BtnAdd_Click"/>
-        <Button x:Name="BtnCancel" Content="Abbrechen" Grid.Row="2" Grid.Column="1" Click="BtnCancel_Click"/>
+        <Label Content="Übung" Foreground="White"  Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        
+        <TextBox x:Name="TBExercise" Background="Transparent" Foreground="White" Grid.Row="0" MaxLength="40" Grid.Column="1" VerticalContentAlignment="Center"/>
+        
+        <Label Content="Muskelgruppen" Foreground="White" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"/>
+
+
+
+        <TextBox x:Name="TBDescription" Foreground="White" Background="Transparent"  Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Top" MaxLength="255" TextWrapping="Wrap"/>
+
+        <Button  Foreground="White" Background="#3282B8"  x:Name="BtnAdd" Content="Hinzufügen" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Click="BtnAdd_Click"/>
+
     </Grid>
 </Window>
