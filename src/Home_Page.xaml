@@ -6,12 +6,13 @@
       xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Home_Page"
-      ShowsNavigationUI="False">
+      Title="Home_Page">
 
     <Grid>
-
-        <WrapPanel x:Name="Days"></WrapPanel>
-        
+        <Button Content="-" HorizontalAlignment="Left" VerticalAlignment="Center" Click="BackButton_Click" Width="50" Height="50" />
+        <ScrollViewer Name="scrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Margin="60,0,60,0">
+            <StackPanel Orientation="Horizontal" x:Name="Days" HorizontalAlignment="Center"></StackPanel>
+        </ScrollViewer>
+        <Button Content="--" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ForwardButton_Click" Width="50" Height="50" />
     </Grid>
 </Page>

@@ -42,9 +42,9 @@ namespace G04_DBI_Trainings_Adventure
             return exercises.ToArray();
         }
 
-        public void LoadWorkouts(WrapPanel HomeWrap)
+        public void LoadWorkouts(StackPanel HomeStack)
         {
-            HomeWrap.Children.Clear();
+            HomeStack.Children.Clear();
             using (SqliteConnection connection = new SqliteConnection(srcString))
             {
                 connection.Open();
@@ -63,7 +63,7 @@ namespace G04_DBI_Trainings_Adventure
 
 
 
-                        HomeWrap.Children.Add(work);
+                        HomeStack.Children.Add(work);
 
                     }
                 }
@@ -111,10 +111,9 @@ namespace G04_DBI_Trainings_Adventure
                         Grid.SetRow(Name, 1);
                         Grid.SetColumn(Name, 0);
 
-                        if (ExcersiseStack.Children.Count < 4)
-                        {
-                            ExcersiseStack.Children.Add(exercise);
-                        }
+             
+                        ExcersiseStack.Children.Add(exercise);
+                        
                     
                     }
                 }
@@ -218,7 +217,48 @@ namespace G04_DBI_Trainings_Adventure
 
 
 
+        public void LoadoneWorkout(string Date, Workout workout)
+        {
+            using (SqliteConnection connection = new SqliteConnection(srcString))
+            {
+                connection.Open();
+                SqliteCommand command = connection.CreateCommand();
 
+                command.CommandText = $"SELECT * FROM TrainingDetails WHERE Datum = '{Date}';";
+
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Exercise exercise = new Exercise();
+                        var Name = new TextBlock();
+                        var Skill = new TextBlock();
+                        var Duration = new TextBlock();
+
+                        Skill.Text = "";
+                        for (int i = 0; i < reader.GetInt32(2); i++)
+                        {
+                            Skill.Text += "*";
+                        }
+
+                        Name.Text = reader.GetString(3);
+                        Duration.Text = reader.GetString(1);
+
+                        exercise.ExerciseGrid.Children.Add(Name);
+                        exercise.ExerciseGrid.Children.Add(Skill);
+                        exercise.ExerciseGrid.Children.Add(Duration);
+
+                        workout.Training.Children.Add(exercise);
+
+                        Grid.SetRow(Skill, 0);
+                        Grid.SetRow(Duration, 1);
+                        Grid.SetColumn(Duration, 1);
+                        Grid.SetRow(Name, 1);
+                        Grid.SetColumn(Name, 0);
+                    }
+                }
+            }
+        }
 
 
 

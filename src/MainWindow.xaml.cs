@@ -30,7 +30,7 @@ namespace G04_DBI_Trainings_Adventure
 
             EventAggregator.DataUpdated += UpdatePageEvent;
             Workout.EventAggregator.DataUpdatedDel += UpdatePageEvent;
-            Workout.EventAggregator.WorkutFullView += WorkoutView;
+
 
         }
 
@@ -60,10 +60,6 @@ namespace G04_DBI_Trainings_Adventure
             }
         }
 
-        private void WorkoutView(FullWorkoutPage page)
-        {
-            ContentFrame.Content = page;
-            
-        }
+
     }
 }
