@@ -129,9 +129,13 @@ Um eine eigene Übung hinzuzufügen müssen Sie auf das Gewicht ähnliche Bild m
 ```answer
 Um die Statistik über Ihre gemachten Übungen zu öffnen klicken Sie bitte auf das Bild, das wie ein Säulendiagramm aussieht. Nun können Sie die Statistik sehen.
 ```
+
+```answer
+Um die Hintergrundfarbe, der unteren Seite des Programmes zu ändern müssen Sie auf Bild klicken, das wie eine Farbpalette aussieht. Die Farbe des Bildes repräsentiert die nächste Farbe nach 2 Klicks.
+```
 #### Eintragsoberfläche
 ```answer
-Scrollen
+Um Ihre weiteren Einträge zu sehen müssen Sie auf einen der Pfeile rechts oder links klicken.
 ```
 
 ```answer
