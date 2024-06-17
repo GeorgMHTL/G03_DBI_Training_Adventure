@@ -47,8 +47,10 @@ namespace G04_DBI_Trainings_Adventure
             {
                 Title = "Gemachte Übungen",
                 Values = statsData.Values.AsChartValues(),
-                Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255)) 
+                Fill = Brushes.Black
+                
             };
+
             var chart = new CartesianChart()
             {
                 Series = new SeriesCollection { columnSeries },
@@ -57,7 +59,8 @@ namespace G04_DBI_Trainings_Adventure
                         new Axis
                         {
                             Title = "Übungen",
-                            Labels = statsData.Keys.ToList()
+                            Labels = statsData.Keys.ToList(),
+                            Foreground = Brushes.Black
 
                         }
                     },
@@ -66,6 +69,7 @@ namespace G04_DBI_Trainings_Adventure
                         new Axis
                         {
                             Title = "Anzahl",
+                            Foreground = Brushes.Black,
                             Separator = new LiveCharts.Wpf.Separator
                             {
                                 Step = 1
@@ -75,7 +79,8 @@ namespace G04_DBI_Trainings_Adventure
                 Width = canvas.ActualWidth,
                 Height = canvas.ActualHeight,
 
-                Background = new SolidColorBrush(Color.FromRgb(50, 130, 184)),
+                Background = Brushes.Transparent,
+
 
             };
 

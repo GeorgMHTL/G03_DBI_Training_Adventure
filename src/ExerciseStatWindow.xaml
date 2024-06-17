@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
         Title="Statistik" Height="450" Width="800">
-    <Canvas x:Name="CanvasDraw" Background="#3282B8"  SizeChanged="CanvasDraw_SizeChanged">
+    <Canvas x:Name="CanvasDraw" Background="White"   SizeChanged="CanvasDraw_SizeChanged">
         
     </Canvas>
 </Window>

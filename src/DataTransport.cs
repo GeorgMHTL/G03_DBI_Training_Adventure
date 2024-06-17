@@ -103,11 +103,13 @@ public class DataTransport
                         Name.FontWeight = FontWeights.Bold;
                         Name.FontSize = 24;
                         
+                        
 
                         Skill.FontFamily = new FontFamily("Inter");
                         Skill.FontWeight = FontWeights.Bold;
                         Skill.FontSize = 24;
-                        Skill.HorizontalAlignment = HorizontalAlignment.Right;
+                        Skill.HorizontalAlignment = HorizontalAlignment.Left;
+                        Skill.Margin = new Thickness(0, 10, 0, -10);
 
 
                         Duration.FontFamily = new FontFamily("Inter");
@@ -117,13 +119,14 @@ public class DataTransport
 
 
 
+
                         Skill.Text = "";
                         for (int i = 0; i < reader.GetInt32(2); i++)
                         {
                             Skill.Text += "*";
                         }
                         string NameText = reader.GetString(3);
-                        var trimmedText = NameText.Length > 10 ? NameText.Substring(0, 10) + "..." : NameText;
+                        var trimmedText = NameText.Length > 12 ? NameText.Substring(0, 12) + "..." : NameText;
                         Name.Text = trimmedText;
                         Duration.Text = reader.GetString(1)+"s";
 
@@ -136,10 +139,10 @@ public class DataTransport
 
 
                         Grid.SetRow(Skill, 1);
-                        Grid.SetColumn(Skill, 1);
+                        Grid.SetColumn(Skill, 0);
                         
 
-                        Grid.SetRow(Duration, 2);
+                        Grid.SetRow(Duration, 1);
                         Grid.SetColumn(Duration, 1);
                     
                         exercise.InfoText.Text = reader.GetString(4);

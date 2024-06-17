@@ -12,7 +12,7 @@
     <Window.Resources>
         <!-- Define the missing brushes -->
         <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="#565656"/>
-        <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="#1B262C"/>
+        <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="#565656"/>
         <SolidColorBrush x:Key="ComboBoxPressedBackgroundBrush" Color="#565656"/>
         <SolidColorBrush x:Key="ComboBoxDisabledBackgroundBrush" Color="Yellow"/>
         <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="MediumSpringGreen"/>
@@ -151,6 +151,22 @@
 
 
         </Style>
+
+        <Style x:Key="NoHoverButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
 
@@ -199,7 +215,7 @@
 
         <ComboBox x:Name="CBExercise" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Foreground="White" Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"/>
 
-        <Button x:Name="BtnAdd" Background="#565656" IsDefault="True" Content="Hinzufügen" Grid.Column="0" Grid.Row="4" Click="BtnAdd_Click" Foreground="White"/>
-        <Button x:Name="BtnCancel" Background="#565656" Content="Abbrechen" Grid.Column="1" Grid.Row="4" Click="BtnCancel_Click" Foreground="White"/>
+        <Button x:Name="BtnAdd" Style="{StaticResource NoHoverButtonStyle}" Background="#565656" BorderThickness="0" IsDefault="True" Content="Hinzufügen" Grid.Column="0" Grid.Row="4" Click="BtnAdd_Click" Foreground="White"/>
+        <Button x:Name="BtnCancel" Style="{StaticResource NoHoverButtonStyle}" Background="#565656" Content="Abbrechen" Grid.Column="1" Grid.Row="4" Click="BtnCancel_Click" Foreground="White"/>
     </Grid>
 </Window>

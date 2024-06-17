@@ -25,7 +25,8 @@ namespace G04_DBI_Trainings_Adventure
             Brushes.DarkMagenta,
             Brushes.Aquamarine,
             Brushes.Green,
-            Brushes.Yellow
+            Brushes.Yellow,
+            Brushes.White,
         };
         public MainWindow()
         {
@@ -60,6 +61,7 @@ namespace G04_DBI_Trainings_Adventure
         private void BtnStat_Click(object sender, RoutedEventArgs e)
         {
             ExerciseStatWindow exerciseStatWindow = new ExerciseStatWindow();
+            exerciseStatWindow.CanvasDraw.Background = homePage.BackgroundGrid.Background;
 
             if (exerciseStatWindow.ShowDialog() == true)
             {
@@ -80,6 +82,7 @@ namespace G04_DBI_Trainings_Adventure
         private void ColorChange_Click(object sender, MouseButtonEventArgs e)
         {
             homePage.BackgroundGrid.Background = brushes[colorIndex];
+            HeadLine.Foreground = brushes[colorIndex];
       
             colorIndex = (colorIndex + 1) % brushes.Count;
             ColorPicker.Fill = brushes[colorIndex];
