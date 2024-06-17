@@ -37,9 +37,9 @@ namespace G04_DBI_Trainings_Adventure
         {
             if (CBDate.SelectedItem != null && TBDuration.Text != "" && CBDiff.SelectedItem != null && CBExercise.SelectedItem != null)
             {
-                if (!int.TryParse(TBDuration.Text, out int duration))
+                if (!int.TryParse(TBDuration.Text, out int duration) && duration <= int.MaxValue)
                 {
-                    MessageBox.Show("Dauer muss eine Zahl sein.");
+                    MessageBox.Show($"Dauer muss eine Zahl sein und kleiner als {int.MaxValue}.");
                 }
                 else
                 {
