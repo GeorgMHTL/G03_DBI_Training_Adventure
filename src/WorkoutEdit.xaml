@@ -5,21 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
-        Title="WorkoutEdit" Height="450" Width="800">
+        Title="WorkoutEdit" Height="450" Width="800"
+        ResizeMode="NoResize" WindowStyle="None"
+        AllowsTransparency="True">
 
     <Window.Resources>
-        <!-- Define the missing brushes -->
-        <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="#3282B8"/>
-        <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="#1B262C"/>
-        <SolidColorBrush x:Key="ComboBoxPressedBackgroundBrush" Color="#3282B8"/>
+        
+        <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="#565656"/>
+        <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="#565656"/>
+        <SolidColorBrush x:Key="ComboBoxPressedBackgroundBrush" Color="#565656"/>
         <SolidColorBrush x:Key="ComboBoxDisabledBackgroundBrush" Color="Yellow"/>
         <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="MediumSpringGreen"/>
-        <SolidColorBrush x:Key="ComboBoxItemHighlightBackgroundBrush" Color="#0F4C75"/>
+        <SolidColorBrush x:Key="ComboBoxItemHighlightBackgroundBrush" Color="#767676"/>
         <SolidColorBrush x:Key="ComboBoxItemHighlightForegroundBrush" Color="White"/>
         <SolidColorBrush x:Key="ComboBoxItemDisabledForegroundBrush" Color="Magenta"/>
-        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="DarkBlue"/>
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#565656"/>
         <SolidColorBrush x:Key="SolidBorderBrush" Color="Gray"/>
-        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#3282B8"/>
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#565656"/>
 
         <!-- ComboBox ToggleButton Style -->
         <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
@@ -142,27 +144,91 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+
+        <Style TargetType="Button" x:Key="ControlBar">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#EEEE"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                              CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#767676"/>
+                </Trigger>
+            </Style.Triggers>
+
+
+        </Style>
+
+
     </Window.Resources>
 
+    <Border BorderBrush="Black" BorderThickness="2">
 
-    <Grid Background="#0F4C75">
-        <Grid Margin="10" Background="#0F4C75">
+        <Grid Background="#505050">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Background="Transparent" FontFamily="Inter" Foreground="White">Datum</TextBlock>
-            <ComboBox Grid.Row="1" x:Name="DateCombo" Foreground="White" Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"></ComboBox>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-            <StackPanel x:Name="ExerciseStack" Background="Transparent" Grid.Row="2">
+            <StackPanel Grid.Row="0" Background="Transparent"  MouseDown="ControlBar_MouseDown">
+
+                <StackPanel Background="#505050" Grid.Row="0"  Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0,7,7,0" x:Name="ControlBar">
+                    <Button Style="{StaticResource ControlBar}" x:Name="Minimize" Click="Minimize_Click">--</Button>
+                    <Button Style="{StaticResource ControlBar}" x:Name="Exit" Click="Exit_Click">X</Button>
+                </StackPanel>
+
             </StackPanel>
 
-            <StackPanel Grid.Row="3" Background="Transparent">
-                <Button Click="Button_Click" Background="#3282B8">Ok</Button>
-            </StackPanel>
+            <Grid Background="#767676" Grid.Row="1">
+                <Grid Margin="10" Background="#767676">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Background="Transparent" FontFamily="Inter" Foreground="White">Datum</TextBlock>
+                    <ComboBox Grid.Row="1" x:Name="DateCombo" Foreground="White" Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"></ComboBox>
+
+                    <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden">
+                        <StackPanel x:Name="ExerciseStack" Background="Transparent" >
+                        </StackPanel>
+                    </ScrollViewer>
+               
+
+                    <StackPanel Grid.Row="3" Background="Transparent">
+                        <Button Click="Button_Click" Background="#3282B8">Ok</Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
         </Grid>
-    </Grid>
+
+    
+    </Border>
+
+    
 </Window>

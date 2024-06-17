@@ -54,5 +54,26 @@ namespace G04_DBI_Trainings_Adventure
                 MessageBox.Show("Bitte füllen Sie alle Felder aus.");
             }
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
+
+ 
+
+        private void Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void ControlBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                DragMove();
+            }
+        }
+
     }
 }

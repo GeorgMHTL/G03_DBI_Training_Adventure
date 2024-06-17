@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
-        Title="AddExerciseWindow" Height="200" Width="500">
+        Title="AddExerciseWindow" Height="200" Width="500"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="NoResize">
 
     <Window.Resources>
 
@@ -25,30 +28,92 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style TargetType="Button" x:Key="ControlBar">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#EEEE"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                              CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#767676"/>
+                </Trigger>
+            </Style.Triggers>
+
+
+        </Style>
+
+
+
     </Window.Resources>
-    
-    
-    <Grid Background="#565656">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <Label Content="Übung" Foreground="White"  Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-        
-        <TextBox x:Name="TBExercise" Background="Transparent" Foreground="White" Grid.Row="0" MaxLength="40" Grid.Column="1" VerticalContentAlignment="Center"/>
-        
-        <Label Content="Muskelgruppen" Foreground="White" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"/>
+
+
+    <Border BorderBrush="Black" BorderThickness="2">
+
+        <Grid Background="#505050">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Background="Transparent"  MouseDown="ControlBar_MouseDown">
+
+                <StackPanel Background="#505050"   Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0,7,7,0" x:Name="ControlBar">
+                    <Button Style="{StaticResource ControlBar}" x:Name="Minimize" Click="Minimize_Click">--</Button>
+                    <Button Style="{StaticResource ControlBar}" x:Name="Exit" Click="Exit_Click">X</Button>
+                </StackPanel>
+
+            </StackPanel>
+
+            <Grid Background="#565656" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Übung" Foreground="White"  Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+
+                <TextBox x:Name="TBExercise" Background="Transparent" Foreground="White" Grid.Row="0" MaxLength="40" Grid.Column="1" VerticalContentAlignment="Center"/>
+
+                <Label Content="Muskelgruppen" Foreground="White" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"/>
 
 
 
-        <TextBox x:Name="TBDescription" Foreground="White" Background="Transparent"  Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Top" MaxLength="255" TextWrapping="Wrap"/>
+                <TextBox x:Name="TBDescription" Foreground="White" Background="Transparent"  Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Top" MaxLength="255" TextWrapping="Wrap"/>
 
-        <Button  Foreground="White" Background="#767676" Style="{StaticResource NoHoverButtonStyle}"  x:Name="BtnAdd" Content="Hinzufügen" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Click="BtnAdd_Click"/>
+                <Button  Foreground="White" Background="#767676" Style="{StaticResource NoHoverButtonStyle}"  x:Name="BtnAdd" Content="Hinzufügen" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Click="BtnAdd_Click"/>
 
-    </Grid>
+            </Grid>
+
+        </Grid>
+
+    </Border>
+
+
 </Window>
