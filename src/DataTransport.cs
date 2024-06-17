@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace G04_DBI_Trainings_Adventure
 {
@@ -43,9 +44,10 @@ public class DataTransport
             return exercises.ToArray();
         }
 
-        public void LoadWorkouts(StackPanel HomeStack)
+        public List<Workout> LoadWorkouts()
         {
-            HomeStack.Children.Clear();
+            
+            List<Workout> workouts = new List<Workout>();
             using (SqliteConnection connection = new SqliteConnection(srcString))
             {
                 connection.Open();
@@ -63,11 +65,12 @@ public class DataTransport
                         LoadExercises(reader.GetString(0), work.Training);
 
 
-                        HomeStack.Children.Add(work);
+                        workouts.Add(work);
           
                     }
                 }
             }
+            return workouts;
         }
 
         public void LoadExercises(string Datum, StackPanel ExcersiseStack)
@@ -91,18 +94,20 @@ public class DataTransport
                         var Skill = new TextBlock();
                         var Duration = new TextBlock();
 
-                  
-                        Name.Foreground = new SolidColorBrush(Color.FromRgb(0xBB, 0xE1, 0xFA));
-                        Skill.Foreground = new SolidColorBrush(Color.FromRgb(0xBB, 0xE1, 0xFA));
-                        Duration.Foreground = new SolidColorBrush(Color.FromRgb(0xBB, 0xE1, 0xFA));
+
+                        Name.Foreground = Brushes.White;
+                        Skill.Foreground = Brushes.White;
+                        Duration.Foreground = Brushes.White;
 
                         Name.FontFamily = new FontFamily("Inter");
                         Name.FontWeight = FontWeights.Bold;
                         Name.FontSize = 24;
+                        
 
                         Skill.FontFamily = new FontFamily("Inter");
                         Skill.FontWeight = FontWeights.Bold;
                         Skill.FontSize = 24;
+                        Skill.HorizontalAlignment = HorizontalAlignment.Right;
 
 
                         Duration.FontFamily = new FontFamily("Inter");
@@ -117,8 +122,9 @@ public class DataTransport
                         {
                             Skill.Text += "*";
                         }
-
-                        Name.Text = reader.GetString(3);
+                        string NameText = reader.GetString(3);
+                        var trimmedText = NameText.Length > 10 ? NameText.Substring(0, 10) + "..." : NameText;
+                        Name.Text = trimmedText;
                         Duration.Text = reader.GetString(1)+"s";
 
                         exercise.ExerciseGrid.Children.Add(Name);
@@ -126,15 +132,15 @@ public class DataTransport
                         exercise.ExerciseGrid.Children.Add(Duration);
 
                         Grid.SetRow(Name, 2);
-                        Grid.SetColumn(Name, 1);
+                        Grid.SetColumn(Name, 0);
 
 
-                        Grid.SetRow(Skill, 2);
-                        Grid.SetColumn(Skill, 2);
+                        Grid.SetRow(Skill, 1);
+                        Grid.SetColumn(Skill, 1);
                         
 
                         Grid.SetRow(Duration, 2);
-                        Grid.SetColumn(Duration, 3);
+                        Grid.SetColumn(Duration, 1);
                     
                         exercise.InfoText.Text = reader.GetString(4);
 

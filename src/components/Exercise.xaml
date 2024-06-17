@@ -7,24 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="800">
 
-    <Border BorderBrush="#0F4C75" BorderThickness="2" Background="#0F4C75" Padding="10" CornerRadius="10" Margin="5" >
+    <Border BorderBrush="Transparent" BorderThickness="2" Background="Transparent" Padding="5" CornerRadius="10"  >
         <Grid Background="Transparent" x:Name="ExerciseGrid" HorizontalAlignment="Stretch" >
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+
+
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="1" Grid.Row="0" FontFamily="Inter" VerticalAlignment="Center">Übungen</TextBlock>
-            <TextBlock Grid.Column="2" Grid.Row="0" FontFamily="Inter" VerticalAlignment="Center">Schwierigkeitsgrad</TextBlock>
-            <TextBlock Grid.Column="3" Grid.Row="0" FontFamily="Inter" HorizontalAlignment="Right" VerticalAlignment="Center">Dauer</TextBlock>
-
-            <Viewbox Grid.Row="0" Grid.Column="0" Margin="20" Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top">
+  
+            <Viewbox Grid.Row="0" Grid.Column="0"  Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Canvas Width="16" Height="16" x:Name="CanvasInfo">
                     <Grid>
                         <Grid.ColumnDefinitions>

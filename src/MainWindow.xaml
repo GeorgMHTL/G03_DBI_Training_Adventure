@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
-        Title="Training Adventure" Height="450" Width="800">
+        Title="Training Adventure" Height="550" Width="950"
+        MinWidth="1000">
     <Window.Resources>
         <Style TargetType="StackPanel" x:Key="NavStyle">
             <Setter Property="Height" Value="50"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="Transparent"/>
         </Style>
 
 
@@ -25,7 +27,7 @@
     </Window.Resources>
 
 
-    <Grid Background="#0F4C75">
+    <Grid Background="#565656">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -34,9 +36,18 @@
        
 
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Style="{StaticResource NavStyle}" HorizontalAlignment="Right">
+        <StackPanel Grid.Row="0" Orientation="Horizontal"  Style="{StaticResource NavStyle}" HorizontalAlignment="Right">
 
-            <Grid MouseLeftButtonDown="BtnStat_Click" Background="#0F4C75">
+            <Grid MouseLeftButtonDown="ColorChange_Click"  Background="Transparent">
+                <Viewbox Width="50" Height="45" >
+                    <Canvas Width="16" Height="16">
+                        <Path Fill="White" x:Name="ColorPicker" Width="16" Height="16" Stretch="Fill" Data="M12.433 10.07C14.133 10.585 16 11.15 16 8a8 8 0 1 0-8 8c1.996 0 1.826-1.504 1.649-3.08-.124-1.101-.252-2.237.351-2.92.465-.527 1.42-.237 2.433.07M8 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3M5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+
+                    </Canvas>
+                </Viewbox>
+            </Grid>
+
+            <Grid MouseLeftButtonDown="BtnStat_Click" Background="Transparent">
                 <Viewbox Width="50" Height="45" >
                     <Canvas Width="16" Height="16">
                         <Path Fill="White" Width="16" Height="16"
@@ -46,7 +57,7 @@
             </Grid>
 
 
-            <Grid MouseLeftButtonDown="Add_Click" Background="#0F4C75">
+            <Grid MouseLeftButtonDown="Add_Click" Background="Transparent">
                 <Viewbox Width="50" Height="45" >
                     <Canvas Width="16" Height="16">
                         <Path Fill="White" Width="16" Height="16" 
@@ -57,7 +68,7 @@
             </Grid>
 
 
-            <Grid MouseLeftButtonDown="BtnAddExercise_Click" Background="#0F4C75">
+            <Grid MouseLeftButtonDown="BtnAddExercise_Click" Background="Transparent">
                 <Viewbox Width="50" Height="50"  HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Canvas Width="32" Height="25">
                         <Viewbox Width="7" Height="6" Canvas.Left="23">

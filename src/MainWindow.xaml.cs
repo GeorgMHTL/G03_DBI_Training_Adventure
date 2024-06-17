@@ -19,11 +19,18 @@ namespace G04_DBI_Trainings_Adventure
     public partial class MainWindow : Window
     {
         public Home_Page homePage = new Home_Page();
-        
+        private int colorIndex = 0;
+        private readonly List<Brush> brushes = new List<Brush>
+        {
+            Brushes.Red,
+            Brushes.Blue,
+            Brushes.Green,
+            Brushes.Yellow
+        };
         public MainWindow()
         {
             InitializeComponent();
-            homePage.UpdatePage();
+            homePage.DisplayCurrentItems();
 
 
             ContentFrame.Content = homePage;
@@ -36,7 +43,7 @@ namespace G04_DBI_Trainings_Adventure
 
         private void UpdatePageEvent()
         {
-           homePage.UpdatePage();
+           homePage.DisplayCurrentItems();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -47,7 +54,7 @@ namespace G04_DBI_Trainings_Adventure
             {
 
             }
-            homePage.UpdatePage();
+            homePage.DisplayCurrentItems();
         }
 
         private void BtnStat_Click(object sender, RoutedEventArgs e)
@@ -68,6 +75,15 @@ namespace G04_DBI_Trainings_Adventure
             {
 
             }
+        }
+
+        private void ColorChange_Click(object sender, MouseButtonEventArgs e)
+        {
+            homePage.BackgroundGrid.Background = brushes[colorIndex];
+      
+            colorIndex = (colorIndex + 1) % brushes.Count;
+            ColorPicker.Fill = brushes[colorIndex];
+
         }
     }
 }

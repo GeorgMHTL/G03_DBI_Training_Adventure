@@ -8,21 +8,77 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home_Page">
 
-    <Grid Background="#0C2D40">
+    <Page.Resources>
 
+        <Style x:Key="NoHoverButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    
+
+    <Grid Background="#0C2D40" x:Name="BackgroundGrid" HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-
-        <ScrollViewer Grid.Column ="1">
-            <StackPanel Background="Transparent" x:Name="Days"  HorizontalAlignment="Stretch">
-            </StackPanel>
-
-        </ScrollViewer>
+        <Grid.RowDefinitions>
+  
+            <RowDefinition Height="*"/>
 
 
-       
+        </Grid.RowDefinitions>
+
+        
+        <Grid Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" MaxHeight="500">
+            <ItemsControl x:Name="ContentDisplay" Background="Transparent">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Grid>
+
+
+        <Button x:Name="PrevButton" Grid.Row="0" Background="Transparent" Style="{StaticResource NoHoverButtonStyle}" BorderThickness="0" Grid.Column="0"  Click="PrevButton_Click" Margin="5">
+            <Viewbox Width="40" Height="40">
+                <Path Data="M3.86,8.753 L9.342,13.549 C9.988,14.115 11,13.655 11,12.796 V3.204 C11,2.345 9.988,1.885 9.342,2.451 L3.86,7.247 C3.214,7.813 3.214,8.187 3.86,8.753 Z" 
+                Fill="Black" 
+                Width="16" 
+                Height="16" 
+                Stretch="Fill"/>
+            </Viewbox>
+        </Button>
+        <Button Background="Transparent"  BorderThickness="0" Style="{StaticResource NoHoverButtonStyle}" x:Name="NextButton"  Grid.Row="0" Grid.Column="3"  Click="NextButton_Click" Margin="5">
+
+            <Viewbox Width="40" Height="40">
+                <Path Data="M3.86,8.753 L9.342,13.549 C9.988,14.115 11,13.655 11,12.796 V3.204 C11,2.345 9.988,1.885 9.342,2.451 L3.86,7.247 C3.214,7.813 3.214,8.187 3.86,8.753 Z" 
+                  Fill="Black" 
+                  Width="16" 
+                  Height="16" 
+                  Stretch="Fill">
+                    <Path.RenderTransform>
+                        <RotateTransform Angle="180" CenterX="8" CenterY="8"/>
+                    </Path.RenderTransform>
+                </Path>
+
+
+            </Viewbox>
+
+        </Button>
+
     </Grid>
 </Page>

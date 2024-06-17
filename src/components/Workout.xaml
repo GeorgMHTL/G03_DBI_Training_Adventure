@@ -11,13 +11,16 @@
 
     <UserControl.Resources>
         <Style TargetType="TextBlock" x:Key="DateText">
-            <Setter Property="Background" Value="#2677AD"/>
+            <Setter Property="Background" Value="Transparent"/>
             <Setter Property="FontFamily" Value="Inter"/>
             <Setter Property="FontSize" Value="32"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Foreground" Value="#1B262C"/>
-            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="TextAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,10,0,0"/>
+            <Setter Property="Text" Value="asfsfasfsdf"/>
+            
         </Style>
 
 
@@ -30,37 +33,58 @@
     </UserControl.Resources>
 
 
-    <Grid Background="#2677AD" Margin="10"  >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        
-        <TextBlock x:Name="Date" Style="{StaticResource DateText}" Grid.Row="0"  Margin="0,0,0,1" VerticalAlignment="Bottom" />
-        <StackPanel x:Name="Training" Background="#2677AD" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch">
-            
-        </StackPanel>
-        
-        <Grid x:Name="BtnDel" Grid.Row="0" Grid.Column="2" Margin="0,0,10,0" MouseLeftButtonDown="BtnDel_Click">
-            <Viewbox Width="25" Height="25">
-                <Canvas Width="16" Height="16">
-                    <Path Fill="White" Data="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z"/>
-                    <Path Stroke="Black" StrokeThickness="2" Data="M5,5 L11,11 M5,11 L11,5" />
-                </Canvas>
-            </Viewbox>
+    <Border Margin="10" BorderBrush="Black" BorderThickness="5">
+        <Grid Background="#565656">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+ 
+            </Grid.RowDefinitions>
+
+            <Border BorderBrush="Black" BorderThickness="2.5" Grid.Row="1" Grid.ColumnSpan="3"></Border>
+
+
+            <TextBlock x:Name="Date" Style="{StaticResource DateText}" Grid.Row="0"  Margin="0,0,0,1" VerticalAlignment="Bottom" />
+            <Grid x:Name="BtnDel" Grid.Row="0" Grid.Column="2" Margin="0,0,10,0" MouseLeftButtonDown="BtnDel_Click">
+                <Viewbox Width="30" Height="30">
+                    <Canvas Width="16" Height="16">
+                        <Path Fill="White" Data="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Z"/>
+                        <Path Stroke="Black" StrokeThickness="2" Data="M5,5 L11,11 M5,11 L11,5" />
+                    </Canvas>
+                </Viewbox>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="1" MouseLeftButtonDown="Button_Click" Background="Transparent" Margin="10">
+                <Viewbox Height="25">
+
+                    <Path  Fill="White" Data="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+
+                </Viewbox>
+
+            </Grid>
+
+
+
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" >
+
+                <StackPanel x:Name="Training" Background="#767676" >
+
+                </StackPanel>
+
+            </ScrollViewer>
+
+
+
         </Grid>
-        
-        <Grid Grid.Row="0" Grid.Column="1" MouseLeftButtonDown="Button_Click" Background="Transparent" Margin="10">
 
-            <Path Fill="White" Data="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+    </Border>
 
 
-        </Grid>
-    </Grid>
+
 </UserControl>
