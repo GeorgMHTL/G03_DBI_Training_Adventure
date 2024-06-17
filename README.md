@@ -35,6 +35,8 @@ Ein Programm zur Trainingsdokumentation, Einträge von Ihrem Training dem Progra
 ### Nice to have's
 - Statistik über die gemachten Übungen der Einträge
 - Möglichkeit eigene Übungen hinzufügen können
+- Einfache UI
+- Designe möglichkeiten
 
 ## Datenbank Abfragen
 
