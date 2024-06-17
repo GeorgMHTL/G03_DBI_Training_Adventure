@@ -225,18 +225,17 @@ public class DataTransport
                     }
                 }
 
-
                 foreach (ExerciseEdit ex in exer.Children)
                 {
-
                     command.CommandText = @$"UPDATE Training
-                                        SET
-                                        fkUebung = '{ex.ExersiceCombo.SelectedIndex + 1}',
-                                        Dauer = '{int.Parse(ex.TimeSpan.Text)}',
-                                        Schwierigkeit = {ex.DifficultyCombo.SelectedIndex + 1}
-                                        WHERE  ID = {ex.ID}";
+                                    SET
+                                    fkUebung = '{ex.ExersiceCombo.SelectedIndex + 1}',
+                                    Dauer = '{int.Parse(ex.TimeSpan.Text)}',
+                                    Schwierigkeit = {ex.DifficultyCombo.SelectedIndex + 1}
+                                    WHERE  ID = {ex.ID}";
 
                     command.ExecuteNonQuery();
+
                 }
 
             }
