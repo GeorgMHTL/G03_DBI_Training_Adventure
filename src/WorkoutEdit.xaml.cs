@@ -58,11 +58,10 @@ namespace G04_DBI_Trainings_Adventure
                 DialogResult = true;
 
             }
-            catch 
+            catch
             {
-                MessageBox.Show("Die Dauer kann nur Zahlen enthalten");
+                MessageBox.Show($"Die Dauer muss eine Zahl sein und kleiner als {int.MaxValue}s sein.");
             }
-
         }
 
 
