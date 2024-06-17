@@ -37,5 +37,11 @@ namespace G04_DBI_Trainings_Adventure.components
 
 
         }
+
+        private void InfoButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show($"{TargetMuscles}");
+
+        }
     }
 }

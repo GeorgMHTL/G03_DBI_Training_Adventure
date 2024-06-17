@@ -88,5 +88,41 @@ namespace G04_DBI_Trainings_Adventure
             ColorPicker.Fill = brushes[colorIndex];
 
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+
+            Application.Current.Shutdown();
+        }
+
+        private void Resize_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal)
+            {
+      
+                WindowState = WindowState.Maximized;
+                
+            }
+            else
+            {
+     
+                WindowState = WindowState.Normal;
+            }
+        }
+
+        private void Minimize_Click(object sender, RoutedEventArgs e)
+        {
+
+            WindowState = WindowState.Minimized;
+        }
+
+        private void ControlBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                DragMove();
+            }
+        }
+
     }
 }

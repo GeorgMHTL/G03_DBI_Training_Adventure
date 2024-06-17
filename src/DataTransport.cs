@@ -145,8 +145,7 @@ public class DataTransport
                         Grid.SetRow(Duration, 1);
                         Grid.SetColumn(Duration, 1);
                     
-                        exercise.InfoText.Text = reader.GetString(4);
-
+                        exercise.TargetMuscles = reader.GetString(4);
 
 
                         ExcersiseStack.Children.Add(exercise);

@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
         Title="Training Adventure" Height="550" Width="950"
-        MinWidth="1000">
+        MinWidth="1000"
+        WindowStyle="None"
+         ResizeMode="CanResizeWithGrip" AllowsTransparency="True">
+
     <Window.Resources>
         <Style TargetType="Grid" x:Key="NavStyle">
             <Setter Property="Height" Value="50"/>
@@ -24,106 +27,169 @@
         </Style>
 
 
+        <Style TargetType="Button" x:Key="ControlBar">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#EEEE"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#767676"/>
+                </Trigger>
+            </Style.Triggers>
+
+
+        </Style>
+
+
+
+
     </Window.Resources>
 
 
-    <Grid Background="#505050">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Border BorderBrush="Black" BorderThickness="2">
 
-       
+        <Grid Background="#505050">
 
-
-        <Grid Grid.Row="0"   Style="{StaticResource NavStyle}" HorizontalAlignment="Stretch" >
-            
-
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-             
-                <TextBlock Text="Trainings Adventure" Foreground="Black" FontSize="36" FontWeight="Bold"
-                       Margin="-1,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <TextBlock Text="Trainings Adventure" Foreground="Black" FontSize="36" FontWeight="Bold"
-                       Margin="1,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <TextBlock Text="Trainings Adventure" Foreground="Black" FontSize="36" FontWeight="Bold"
-                       Margin="0,-1,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <TextBlock Text="Trainings Adventure" Foreground="Black" FontSize="36" FontWeight="Bold"
-                       Margin="0,1,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-     
-                <TextBlock Text="Trainings Adventure" x:Name="HeadLine" Foreground="White" FontSize="36" FontWeight="Bold"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            </Grid>
+            <StackPanel Grid.Row="0" Background="Transparent"  MouseDown="ControlBar_MouseDown">
 
+                <StackPanel Background="Transparent"   Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0,7,7,0" x:Name="ControlBar">
+                    <Button Style="{StaticResource ControlBar}" x:Name="Minimize" Click="Minimize_Click">--</Button>
+                    <Button Style="{StaticResource ControlBar}" x:Name="Resize" Click="Resize_Click">O</Button>
+                    <Button Style="{StaticResource ControlBar}" x:Name="Exit" Click="Exit_Click">X</Button>
+                </StackPanel>
 
+            </StackPanel>
 
-            <Grid MouseLeftButtonDown="BtnStat_Click" Grid.Column="0"  Background="Transparent" Margin="10,0,10,0">
-                <Viewbox Width="50" Height="45" >
-                    <Canvas Width="16" Height="16">
-                        <Path Fill="White" Width="16" Height="16"
-                            Data="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1z"/>
-                    </Canvas>
-                </Viewbox>
-            </Grid>
+            <Grid Background="#505050" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
 
 
 
-
-            <Grid MouseLeftButtonDown="Add_Click" Grid.Column="2"  Background="Transparent" Margin="10,0,10,0">
-                <Viewbox Width="50" Height="45" >
-                    <Canvas Width="16" Height="16">
-                        <Path Fill="White" Width="16" Height="16" 
-                              Data="M8 5a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5A.5.5 0 0 1 8 5 M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2 M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
-                    </Canvas>
-                </Viewbox>
-
-            </Grid>
+                <Grid Grid.Row="0"   Style="{StaticResource NavStyle}" HorizontalAlignment="Stretch" >
 
 
-            <Grid MouseLeftButtonDown="BtnAddExercise_Click" Grid.Column="3"  Background="Transparent" Margin="10,0,10,0">
-                <Viewbox Width="50" Height="50"  HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <Canvas Width="32" Height="25">
-                        <Viewbox Width="7" Height="6" Canvas.Left="23">
-                            <Canvas Width="12" Height="12">
-                                <Path Fill="White" Data="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                                <Path Fill="White" Data="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <TextBlock Text="Trainings Adventure" Foreground="Black" FontSize="36" FontWeight="Bold"
+                     Margin="-1,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Trainings Adventure" Foreground="Black" FontSize="36" FontWeight="Bold"
+                     Margin="1,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Trainings Adventure" Foreground="Black" FontSize="36" FontWeight="Bold"
+                     Margin="0,-1,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Trainings Adventure" Foreground="Black" FontSize="36" FontWeight="Bold"
+                     Margin="0,1,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                        <TextBlock Text="Trainings Adventure" x:Name="HeadLine" Foreground="White" FontSize="36" FontWeight="Bold"
+                     VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+
+
+
+                    <Grid MouseLeftButtonDown="BtnStat_Click" Grid.Column="0"  Background="Transparent" Margin="10,0,10,0">
+                        <Viewbox Width="50" Height="45" >
+                            <Canvas Width="16" Height="16">
+                                <Path Fill="White" Width="16" Height="16"
+                          Data="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1z"/>
                             </Canvas>
                         </Viewbox>
-                        <Path Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round" Data="M7,24L7,24c-1.1,0-2-0.9-2-2V10c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v12C9,23.1,8.1,24,7,24z"/>
-                        <Path Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round" Data="M3,21L3,21c-1.1,0-2-0.9-2-2v-6c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v6C5,20.1,4.1,21,3,21z"/>
-                        <Path Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round" Data="M25,8L25,8c1.1,0,2,0.9,2,2v12c0,1.1-0.9,2-2,2h0c-1.1,0-2-0.9-2-2V10C23,8.9,23.9,8,25,8z"/>
-                        <Path Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round" Data="M29,11L29,11c1.1,0,2,0.9,2,2v6c0,1.1-0.9,2-2,2h0c-1.1,0-2-0.9-2-2v-6C27,11.9,27.9,11,29,11z"/>
-                        <Path Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round" Data="M9,16L23,16"/>
-                    </Canvas>
-                </Viewbox>
+                    </Grid>
+
+
+
+
+
+                    <Grid MouseLeftButtonDown="Add_Click" Grid.Column="2"  Background="Transparent" Margin="10,0,10,0">
+                        <Viewbox Width="50" Height="45" >
+                            <Canvas Width="16" Height="16">
+                                <Path Fill="White" Width="16" Height="16" 
+                            Data="M8 5a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5A.5.5 0 0 1 8 5 M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2 M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+                            </Canvas>
+                        </Viewbox>
+
+                    </Grid>
+
+
+                    <Grid MouseLeftButtonDown="BtnAddExercise_Click" Grid.Column="3"  Background="Transparent" Margin="10,0,10,0">
+                        <Viewbox Width="50" Height="50"  HorizontalAlignment="Center" VerticalAlignment="Center" >
+                            <Canvas Width="32" Height="25">
+                                <Viewbox Width="7" Height="6" Canvas.Left="23">
+                                    <Canvas Width="12" Height="12">
+                                        <Path Fill="White" Data="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                        <Path Fill="White" Data="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                                    </Canvas>
+                                </Viewbox>
+                                <Path Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round" Data="M7,24L7,24c-1.1,0-2-0.9-2-2V10c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v12C9,23.1,8.1,24,7,24z"/>
+                                <Path Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round" Data="M3,21L3,21c-1.1,0-2-0.9-2-2v-6c0-1.1,0.9-2,2-2h0c1.1,0,2,0.9,2,2v6C5,20.1,4.1,21,3,21z"/>
+                                <Path Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round" Data="M25,8L25,8c1.1,0,2,0.9,2,2v12c0,1.1-0.9,2-2,2h0c-1.1,0-2-0.9-2-2V10C23,8.9,23.9,8,25,8z"/>
+                                <Path Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round" Data="M29,11L29,11c1.1,0,2,0.9,2,2v6c0,1.1-0.9,2-2,2h0c-1.1,0-2-0.9-2-2v-6C27,11.9,27.9,11,29,11z"/>
+                                <Path Stroke="White" StrokeThickness="1.5" StrokeLineJoin="Round" Data="M9,16L23,16"/>
+                            </Canvas>
+                        </Viewbox>
+
+                    </Grid>
+
+                    <Grid MouseLeftButtonDown="ColorChange_Click" Grid.Column="4"  Background="Transparent" Margin="10,0,10,0">
+                        <Viewbox Width="50" Height="45" >
+                            <Canvas Width="16" Height="16">
+                                <Path Fill="White" x:Name="ColorPicker" Width="16" Height="16" Stretch="Fill" Data="M12.433 10.07C14.133 10.585 16 11.15 16 8a8 8 0 1 0-8 8c1.996 0 1.826-1.504 1.649-3.08-.124-1.101-.252-2.237.351-2.92.465-.527 1.42-.237 2.433.07M8 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3M5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+
+                            </Canvas>
+                        </Viewbox>
+                    </Grid>
+
+
+                </Grid>
+
+                <Frame x:Name="ContentFrame" Background="White" NavigationUIVisibility="Hidden"  Grid.Row="1">
+
+                </Frame>
 
             </Grid>
-
-            <Grid MouseLeftButtonDown="ColorChange_Click" Grid.Column="4"  Background="Transparent" Margin="10,0,10,0">
-                <Viewbox Width="50" Height="45" >
-                    <Canvas Width="16" Height="16">
-                        <Path Fill="White" x:Name="ColorPicker" Width="16" Height="16" Stretch="Fill" Data="M12.433 10.07C14.133 10.585 16 11.15 16 8a8 8 0 1 0-8 8c1.996 0 1.826-1.504 1.649-3.08-.124-1.101-.252-2.237.351-2.92.465-.527 1.42-.237 2.433.07M8 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3M5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-
-                    </Canvas>
-                </Viewbox>
-            </Grid>
-
 
         </Grid>
 
-        <Frame x:Name="ContentFrame" Background="White" NavigationUIVisibility="Hidden"  Grid.Row="1">
-            
-        </Frame>
 
-    </Grid>
+    </Border>
+  
 </Window>
