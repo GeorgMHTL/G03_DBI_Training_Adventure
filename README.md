@@ -127,11 +127,11 @@ Hier sehen Sie nun unser Programm. Unten finden Sie Ihre Einträge und oben gibt
 ```answer
 Um einen Eintrag hinzuzufügen müssen Sie auf das Notzizbuch ähnliche Bild mit einem Pfeil nach unten in der Mitte klicken. Später taucht ein kleines Fenster auf, wo Sie Ihre Daten einfügen müssen. Beachten Sie, dass alle Felder richtig befüllt sein müssen, damit ein Eintrag, später beim Klicken auf "Hinzufügen", hinzugefügt wird.
 ```
-
+![Eintrag hinzufügen](Screenshots/EintragHinzufuegen.png)
 ```answer
 Um eine eigene Übung hinzuzufügen müssen Sie auf das Gewicht ähnliche Bild mit einem Plus klicken. Später taucht ein kleines Fenster auf, wo Sie Ihre Daten einfügen müssen. Beachten Sie, dass alle Felder richtig befüllt sein müssen, damit ein Eintrag, später beim Klicken auf "Hinzufügen", hinzugefügt wird.
 ```
-
+![Übung hinzufügen](Screenshots/UebungHinzufuegen.png)
 ```answer
 Um die Statistik über Ihre gemachten Übungen zu öffnen klicken Sie bitte auf das Bild, das wie ein Säulendiagramm aussieht. Nun können Sie die Statistik sehen.
 ```
@@ -139,15 +139,16 @@ Um die Statistik über Ihre gemachten Übungen zu öffnen klicken Sie bitte auf 
 ```answer
 Um die Hintergrundfarbe, der unteren Seite des Programmes zu ändern und den Titel des Programmes müssen Sie auf das Bild klicken, das wie eine Farbpalette aussieht. Die Farbe des Bildes repräsentiert die nächste Farbe nach 2 Klicks.
 ```
+![Farbpalette](Screenshots/Farbpalette.png)
 #### Eintragsoberfläche
 ```answer
 Um Ihre weiteren Einträge zu sehen müssen Sie auf einen der Pfeile rechts oder links klicken.
 ```
-
+![Einträge Pfeile](Screenshots/EintragPfeile.png)
 ```answer
 Um einen Eintrag zu bearbeiten müssen Sie bei einem Eintrag auf das Stift ähnliche Bild klicken. Später taucht ein kleines Fenster auf, wo Sie die bereits festgelegten Daten umändern können. Klicken Sie dann auf "Ok" um Ihre Änderung zu bestätigen.
 ```
-
+![Eintrag ändern](Screenshots/EintragAender.png)
 ```answer
 Um einen Eintrag zu löschen müssen Sie bei einem Eintrag auf das Bild klicken, welches ein X symbolisiert. Später wird dieser Eintrag gelöscht und ist nicht mehr zu finden.
 ```
