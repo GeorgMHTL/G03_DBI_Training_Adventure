@@ -8,18 +8,17 @@
              d:DesignHeight="200" d:DesignWidth="400">
 
     <UserControl.Resources>
-        <!-- Define the missing brushes -->
-        <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="#3282B8"/>
-        <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="#1B262C"/>
-        <SolidColorBrush x:Key="ComboBoxPressedBackgroundBrush" Color="#3282B8"/>
+        <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="#565656"/>
+        <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="#565656"/>
+        <SolidColorBrush x:Key="ComboBoxPressedBackgroundBrush" Color="#565656"/>
         <SolidColorBrush x:Key="ComboBoxDisabledBackgroundBrush" Color="Yellow"/>
         <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="MediumSpringGreen"/>
-        <SolidColorBrush x:Key="ComboBoxItemHighlightBackgroundBrush" Color="#0F4C75"/>
+        <SolidColorBrush x:Key="ComboBoxItemHighlightBackgroundBrush" Color="#767676"/>
         <SolidColorBrush x:Key="ComboBoxItemHighlightForegroundBrush" Color="White"/>
         <SolidColorBrush x:Key="ComboBoxItemDisabledForegroundBrush" Color="Magenta"/>
-        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="DarkBlue"/>
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#565656"/>
         <SolidColorBrush x:Key="SolidBorderBrush" Color="Gray"/>
-        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#3282B8"/>
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#565656"/>
 
         <!-- ComboBox ToggleButton Style -->
         <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
@@ -144,13 +143,17 @@
             </Setter>
         </Style>
 
+
         <Style TargetType="TextBox" x:Key="TextBlockStyle">
             <Setter Property="FontFamily" Value="Inter"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#3282B8"/>
+            <Setter Property="Background" Value="#565656"/>
             <Setter Property="BorderBrush" Value="Black" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
+
+
         </Style>
+
 
     </UserControl.Resources>
 
