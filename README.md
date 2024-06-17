@@ -120,8 +120,9 @@ Sie müssen unsere .exe Datei herunterladen um unser Programm zu benutzen
 ### Bedienungsanleitung
 #### Allgemein
 ```answer
-Hier sehen Sie nun unser Programm. Unten finden Sie Ihre Einträge und oben gibt es noch Knöpfe um weitere Funktionalitäten auszuführen.
+Hier sehen Sie nun unser Programm. Unten finden Sie Ihre Einträge und oben gibt es noch Icons um weitere Funktionalitäten auszuführen.
 ```
+![Haupt Seite](Screenshots/Hauptseite.png)
 #### Navigation
 ```answer
 Um einen Eintrag hinzuzufügen müssen Sie auf das Notzizbuch ähnliche Bild mit einem Pfeil nach unten in der Mitte klicken. Später taucht ein kleines Fenster auf, wo Sie Ihre Daten einfügen müssen. Beachten Sie, dass alle Felder richtig befüllt sein müssen, damit ein Eintrag, später beim Klicken auf "Hinzufügen", hinzugefügt wird.
@@ -136,7 +137,7 @@ Um die Statistik über Ihre gemachten Übungen zu öffnen klicken Sie bitte auf 
 ```
 
 ```answer
-Um die Hintergrundfarbe, der unteren Seite des Programmes zu ändern müssen Sie auf Bild klicken, das wie eine Farbpalette aussieht. Die Farbe des Bildes repräsentiert die nächste Farbe nach 2 Klicks.
+Um die Hintergrundfarbe, der unteren Seite des Programmes zu ändern und den Titel des Programmes müssen Sie auf das Bild klicken, das wie eine Farbpalette aussieht. Die Farbe des Bildes repräsentiert die nächste Farbe nach 2 Klicks.
 ```
 #### Eintragsoberfläche
 ```answer
@@ -150,7 +151,8 @@ Um einen Eintrag zu bearbeiten müssen Sie bei einem Eintrag auf das Stift ähnl
 ```answer
 Um einen Eintrag zu löschen müssen Sie bei einem Eintrag auf das Bild klicken, welches ein X symbolisiert. Später wird dieser Eintrag gelöscht und ist nicht mehr zu finden.
 ```
-
+![Löschen Button](Screenshots/LöschenButton.png)
 ```answer
-Wenn Sie wissen möchten, welche Muskelgruppen eine Übung trainiert, dann müssen Sie lediglich nur Ihren Mauszeiger bei einem Eintrag auf den Informationssymbol, das eingekreiste "i", legen.
+Wenn Sie wissen möchten, welche Muskelgruppen eine Übung trainiert, dann müssen Sie bei einem Eintrag auf den Informationssymbol, das eingekreiste "i", klicken.
 ```
+![Info Symbol](Screenshots/InfoSymbol.png)
