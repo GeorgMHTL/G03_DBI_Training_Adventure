@@ -11,19 +11,18 @@
 
     <Window.Resources>
         <!-- Define the missing brushes -->
-        <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="#3282B8"/>
+        <SolidColorBrush x:Key="ComboBoxNormalBackgroundBrush" Color="#565656"/>
         <SolidColorBrush x:Key="ComboBoxNormalBorderBrush" Color="#1B262C"/>
-        <SolidColorBrush x:Key="ComboBoxPressedBackgroundBrush" Color="#3282B8"/>
+        <SolidColorBrush x:Key="ComboBoxPressedBackgroundBrush" Color="#565656"/>
         <SolidColorBrush x:Key="ComboBoxDisabledBackgroundBrush" Color="Yellow"/>
         <SolidColorBrush x:Key="ComboBoxDisabledForegroundBrush" Color="MediumSpringGreen"/>
-        <SolidColorBrush x:Key="ComboBoxItemHighlightBackgroundBrush" Color="#0F4C75"/>
+        <SolidColorBrush x:Key="ComboBoxItemHighlightBackgroundBrush" Color="#767676"/>
         <SolidColorBrush x:Key="ComboBoxItemHighlightForegroundBrush" Color="White"/>
         <SolidColorBrush x:Key="ComboBoxItemDisabledForegroundBrush" Color="Magenta"/>
-        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="DarkBlue"/>
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#565656"/>
         <SolidColorBrush x:Key="SolidBorderBrush" Color="Gray"/>
-        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#3282B8"/>
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#565656"/>
 
-        <!-- ComboBox ToggleButton Style -->
         <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -58,7 +57,6 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
 
-        <!-- ComboBox Style -->
         <Style TargetType="ComboBox" x:Key="CustomComboBoxStyle">
             <Setter Property="Template">
                 <Setter.Value>
@@ -121,7 +119,6 @@
             </Setter>
         </Style>
 
-        <!-- ComboBoxItem Style -->
         <Style TargetType="ComboBoxItem" x:Key="CustomComboBoxItemStyle">
             <Setter Property="Template">
                 <Setter.Value>
@@ -148,7 +145,7 @@
         <Style TargetType="TextBox" x:Key="TextBlockStyle">
             <Setter Property="FontFamily" Value="Inter"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#3282B8"/>
+            <Setter Property="Background" Value="#565656"/>
             <Setter Property="BorderBrush" Value="Black" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
 
@@ -160,7 +157,7 @@
 
 
 
-    <Grid Background="#0F4C75">
+    <Grid Background="#767676">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
@@ -202,7 +199,7 @@
 
         <ComboBox x:Name="CBExercise" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Foreground="White" Style="{StaticResource CustomComboBoxStyle}" ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"/>
 
-        <Button x:Name="BtnAdd" Background="#3282B8" IsDefault="True" Content="Hinzufügen" Grid.Column="0" Grid.Row="4" Click="BtnAdd_Click" Foreground="White"/>
-        <Button x:Name="BtnCancel" Background="#3282B8" Content="Abbrechen" Grid.Column="1" Grid.Row="4" Click="BtnCancel_Click" Foreground="White"/>
+        <Button x:Name="BtnAdd" Background="#565656" IsDefault="True" Content="Hinzufügen" Grid.Column="0" Grid.Row="4" Click="BtnAdd_Click" Foreground="White"/>
+        <Button x:Name="BtnCancel" Background="#565656" Content="Abbrechen" Grid.Column="1" Grid.Row="4" Click="BtnCancel_Click" Foreground="White"/>
     </Grid>
 </Window>

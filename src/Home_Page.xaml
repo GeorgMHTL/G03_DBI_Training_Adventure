@@ -28,7 +28,7 @@
     </Page.Resources>
     
 
-    <Grid Background="#0C2D40" x:Name="BackgroundGrid" HorizontalAlignment="Stretch">
+    <Grid Background="Yellow" x:Name="BackgroundGrid" HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>

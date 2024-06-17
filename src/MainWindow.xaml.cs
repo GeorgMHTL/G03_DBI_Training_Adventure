@@ -22,8 +22,8 @@ namespace G04_DBI_Trainings_Adventure
         private int colorIndex = 0;
         private readonly List<Brush> brushes = new List<Brush>
         {
-            Brushes.Red,
-            Brushes.Blue,
+            Brushes.Magenta,
+            Brushes.Aquamarine,
             Brushes.Green,
             Brushes.Yellow
         };

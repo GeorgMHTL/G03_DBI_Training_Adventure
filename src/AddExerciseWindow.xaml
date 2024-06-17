@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:G04_DBI_Trainings_Adventure"
         mc:Ignorable="d"
         Title="AddExerciseWindow" Height="200" Width="500">
-    <Grid Background="#0F4C75">
+    <Grid Background="#565656">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
@@ -26,7 +26,7 @@
 
         <TextBox x:Name="TBDescription" Foreground="White" Background="Transparent"  Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Top" MaxLength="255" TextWrapping="Wrap"/>
 
-        <Button  Foreground="White" Background="#3282B8"  x:Name="BtnAdd" Content="Hinzufügen" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Click="BtnAdd_Click"/>
+        <Button  Foreground="White" Background="#767676"  x:Name="BtnAdd" Content="Hinzufügen" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Click="BtnAdd_Click"/>
 
     </Grid>
 </Window>
