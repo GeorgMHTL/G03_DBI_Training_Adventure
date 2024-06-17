@@ -3,7 +3,7 @@
 
 ### Joudi
 | Datum      | Was gemacht?                                                                          |
-|------------|---------------------------------------------------------------------------------------|
+| ---------- | ------------------------------------------------------------------------------------- |
 | 21.05.2024 | Tabelle Trainingstage, Uebungen und Training erstellt                                 |
 | 31.05.2024 | View Tabelle erstellt mit Joins                                                       |
 | 04.06.2024 | AddDay Klasse und AddWindow hinzugefügt                                               |
@@ -13,17 +13,18 @@
 | 14.06.2024 | Löschen fertig fehlt das Aktualisieren von der Home page nach dem löschen             |
 | 15.06.2024 | Statistik fertig; Übungen variabel gemacht und man kann jetzt übungen hinzufügen      |
 | 16.06.2024 | AddButton in 2 Buttons aufgeteilt für Eintrag und Übung; Buttons mit Icons vertauscht |
+| 17.06.2024 | Dokumentation feinschliff                                                             |
 
-### Georg (in English because Joudi doesnt do it)
-| Datum      | Was gemacht?                     |
-|------------|----------------------------------|
-| 04.06.2024 | Crated Repo and Base Layout      |
-| 10.06.2024 | Added Loading from DB            |
-| 11.06.2024 | Worked on Edit Window            |
-| 13.06.2024 | Worked on Edit Window            |
-| 15.06.2024 | Worked on UI                     |
-| 16.06.2024 | Worked on UI and some SMALL bugs |
-| 17.06.2024 | Worked on the NEW UI             |
+### Georg
+| Datum      | Was gemacht?                                 |
+| ---------- | -------------------------------------------- |
+| 04.06.2024 | Repo erstellt und Basis Layout               |
+| 10.06.2024 | Lesen der Datenbank hinzugefügt              |
+| 11.06.2024 | Arbeitete am Bearbeitungs Fenster            |
+| 13.06.2024 | Arbeitete am Bearbeitungs Fenster            |
+| 15.06.2024 | Am Designt gearbeitet                        |
+| 16.06.2024 | Am Design gearbeitet und behob ein paar Bugs |
+| 17.06.2024 | Am neuen Design gearbeitet                   |
 
 ## Kurzbeschreibung des Projekts
 Ein Programm zur Trainingsdokumentation, Einträge von Ihrem Training dem Programm hinzufügen
@@ -36,7 +37,7 @@ Ein Programm zur Trainingsdokumentation, Einträge von Ihrem Training dem Progra
 - Statistik über die gemachten Übungen der Einträge
 - Möglichkeit eigene Übungen hinzufügen können
 - Einfache UI
-- Designe möglichkeiten
+- Erweitertes Design
 
 ## Datenbank Abfragen
 
@@ -71,7 +72,7 @@ JOIN
 ```
 
 ### Daten hinzufügen
-Spalten die mit {} eingegrentzt sind, sind Variablen in unserem Programm.
+**Wichtig**: Spalten die mit {} eingegrentzt sind, sind Variablen in unserem Programm.
 ```sql
 INSERT INTO Uebungen (Name, Muskelgruppen) VALUES ('{name}', '{description}');
 ```
