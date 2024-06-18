@@ -183,6 +183,7 @@ public class DataTransport
                         Data.Add(reader.GetString(1));
                         Data.Add(reader.GetString(2));
                         Data.Add(reader.GetString(3));
+                        Data.Add(reader.GetString(4));
                         Data.Add(reader.GetString(5));
 
 

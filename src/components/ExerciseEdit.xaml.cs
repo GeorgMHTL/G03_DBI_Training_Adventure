@@ -29,7 +29,7 @@ namespace G04_DBI_Trainings_Adventure.components
             InitializeComponent();
             LoadDefaultData(Data);
 
-            this.ID = Convert.ToInt32(Data[4]);
+            this.ID = Convert.ToInt32(Data[5]);
 
         }
 
